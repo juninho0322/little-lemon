@@ -21,6 +21,7 @@ export const Greetings = () => {
         setCount(0);
     }
 
+
     return (
     <>
     <h1>{count}</h1>

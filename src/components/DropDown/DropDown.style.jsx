@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const DropdownWrapper = styled.div`
   position: relative;
   display: inline-block;
+
+      @media (min-width: 785px) {
+    display: none;   /* hide the nav completely */
+  }
 `;
 
 export const DropdownButton = styled.button`
@@ -36,7 +40,7 @@ export const DropdownItem = styled.li`
   gap: 8px;
 
   &:hover {
-    background: #eee;
+    background: #a19d9dff;
   }
 `;
 

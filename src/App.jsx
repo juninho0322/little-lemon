@@ -1,18 +1,21 @@
 import { GlobalStyle } from './components/GlobalStyle/GlobalStyle'
-import { Greetings } from './components/test/test'
 import './App.css'
-import  { Dropdown } from './components/DropDown/DropDown'
+import AppWrapper from './components/AppWrapper'
+import { Col } from 'react-grid-system'
+import { Header } from './components/Header/Header'
+
+
 
 function App() {
 
   return (
     <>
       <GlobalStyle />
-      <Greetings button="Click me" />
-         <Dropdown
-        options={["Profile", "Settings", "Logout"]}
-      />
-
+      <AppWrapper >
+        <Col lg={12} >
+          <Header />
+        </Col>
+      </AppWrapper>
     </>
   )
 }
