@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 /* Only show on mobile */
 export const MobileOnly = styled.div`
-  @media (min-width: 851px) {
+  @media (min-width: 801px) {
     display: none;
   }
 `;
@@ -57,16 +57,19 @@ export const MenuList = styled.ul`
   align-items: center;
   gap: 25px;
   text-align: center;
-  flex: 1;
 `;
 
 export const MenuLink = styled.a`
   padding: 14px 12px;
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 300;
+  color: var(--color-primary-text);
   &:hover {
-    border-bottom: 2px solid #333;
-    font-weight: 500;
+    border-bottom: 2px solid var(--color-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
   }
 `;
+
+
+
+

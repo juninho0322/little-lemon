@@ -6,7 +6,7 @@ export const NavbarStyled = styled.nav`
   flex: 1 1 auto;             /* lets nav grow in the middle */
   min-width: 220px;           /* avoids collapsing too small on wrap */
 
-    @media (max-width: 851px) {
+    @media (max-width: 800px) {
     display: none;   /* hide the nav completely */
   }
 `;
@@ -27,18 +27,16 @@ export const NavList = styled.ul`
 `;
 
 export const NavLink = styled.a`
-  color: #333;
+  color: var(--color-primary-text);
   text-decoration: none;
-  font-weight: 500;
-  line-height: 1;
   padding: 8px 10px;
   border-radius: 8px;
   transition: background 120ms ease-in-out;
 
   &:hover,
   &:focus-visible {
-    background: rgba(0,0,0,0.06);
-    outline: none;
+    background: var(--color-primary);
+    font-weight: 600;
   }
 
   &[aria-current="page"] {

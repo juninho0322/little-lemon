@@ -7,13 +7,15 @@ export const Logo = styled.img.attrs({
 })`
   width: auto;
 
-  height: ${({ size }) =>
-    size === "medium" ? "50px" :
-    size === "large" ? "100px" :
+  height: ${({ $size }) =>
+    $size === "medium" ? "50px" :
+    $size === "large" ? "100px" :
     "25px"}; /* default small */
 
-    padding-bottom: ${({ paddingbottom }) =>
-    paddingbottom === "small" ? "0px" :
-    paddingbottom === "large" ? "20px" :
+    padding-bottom: ${({ $paddingbottom }) =>
+    $paddingbottom === "small" ? "0px" :
+    $paddingbottom === "large" ? "20px" :
     "4px"};
+
+    align-self: center;
 `;

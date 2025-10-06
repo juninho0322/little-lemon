@@ -1,0 +1,43 @@
+===============================================
+Colors — when to use
+===============================================
+
+Primary #F4CE14 (lemon): CTA accents, highlights, active nav pills. Text on it → #1F1F1F.
+
+Secondary #495E57 (olive/green): Solid buttons, key sections, header accents. Text on it → #EDEFEE.
+
+Surface #FFFFFF: Page background, cards.
+
+Surface-soft #EDEFEE: Hovers, subtle sections, table rows.
+
+Text #1F1F1F: Main body text.
+
+Text-muted #5C5C5C: Helper/secondary text, captions.
+
+Border #E3E3E3: Dividers, card borders, input outlines.
+
+Coral #EE9972 / Blush #FBDABB / Leaf #6BA368: Optional accents (promo, badges, success).
+
+Focus #2A9D8F: :focus-visible outline.
+
+===============================================
+Fonts — family & sizes
+===============================================
+
+Headings: Markazi Text, serif
+
+H1: clamp(2.25rem → 3.25rem) · line-height 1.1
+
+H2: clamp(1.75rem → 2.25rem) · line-height 1.2
+
+H3: 1.5rem · line-height 1.25
+
+H4: 1.25rem · line-height 1.3
+
+Body / UI: Karla, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
+
+Body: 1rem (16px) · line-height 1.5
+
+Small/Labels: 0.875rem (14px)
+
+Caption: 0.8125rem (13px)
