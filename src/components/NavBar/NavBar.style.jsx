@@ -14,6 +14,7 @@ export const NavbarStyled = styled.nav`
 export const NavList = styled.ul`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   list-style: none;
   padding: 0;

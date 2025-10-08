@@ -10,8 +10,8 @@ export const HeaderStyled = styled.header`
   padding: 0 20px;
   box-sizing: border-box;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.07);
-  background: #fff;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+  background: var(--color-surface);
 
 
 `;
@@ -19,6 +19,7 @@ export const HeaderStyled = styled.header`
 export const DesktopOnly = styled.div`
   @media (max-width: 800px) {
     display: none;
+
   }
 `;
 

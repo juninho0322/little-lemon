@@ -3,9 +3,9 @@ import './App.css'
 import AppWrapper from './components/AppWrapper'
 import { Col } from 'react-grid-system'
 import { Header } from './components/Header/Header'
-import { Main } from './components/Main/Main'
+import { Content } from './components/Content/Content'
 import { Footer } from './components/Footer/Footer'
-
+import { About } from './components/About/About'
 
 
 function App() {
@@ -18,15 +18,13 @@ function App() {
           <Header />
         </Col>
         <Col>
-          <Main>
-            <h1>Welcome to Little Lemon</h1>
-            <p>Your favorite neighborhood Mediterranean restaurant!</p>
-          </Main>
+          <Content>
+            <About/>
+          </Content>
         </Col>
         <Col lg={12}>
           <Footer />
         </Col>
-
       </AppWrapper>
     </>
   )
