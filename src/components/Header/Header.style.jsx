@@ -17,7 +17,7 @@ export const HeaderStyled = styled.header`
 `;
 
 export const DesktopOnly = styled.div`
-  @media (max-width: 800px) {
+  @media (max-width: 700px) {
     display: none;
 
   }

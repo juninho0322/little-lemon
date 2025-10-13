@@ -2,7 +2,8 @@ import { HeaderStyled, DesktopOnly } from "./Header.style";
 import { Navbar } from "../NavBar/NavBar";
 import { MobileMenu } from "../MobileMenu/MobileMenu";
 import { Logo } from "../Logo/Logo";
-import { Button } from "../Button/Button";
+import { CartIcon } from "../CartIcon/CartIcon";
+
 
 
 export const Header = () => {
@@ -11,7 +12,7 @@ export const Header = () => {
       <Logo $size="medium"/>  {/* Logo component */}
       <Navbar />  {/* Desktop nav */}
         <DesktopOnly>
-            <Button $color="surface">Reserve a Table</Button> {/* Call to action button */}
+            <CartIcon count={3}/>  {/* Cart icon with item count */}
         </DesktopOnly>
         <MobileMenu /> {/* new burger menu */}
     </HeaderStyled>

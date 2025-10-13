@@ -6,7 +6,7 @@ export const NavbarStyled = styled.nav`
   flex: 1 1 auto;             /* lets nav grow in the middle */
   min-width: 220px;           /* avoids collapsing too small on wrap */
 
-    @media (max-width: 800px) {
+    @media (max-width: 700px) {
     display: none;   /* hide the nav completely */
   }
 `;

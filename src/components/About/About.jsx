@@ -2,14 +2,15 @@
 import { AboutStyle } from "./About.style";
 import { AboutSwiper } from "./AboutSwiper";
 import { Col } from "react-grid-system";
+import { Button } from "../Button/Button";
 
 export const About = () => {
   return (
     <AboutStyle>
       <AboutSwiper />  {/* sits behind as the background */}
         <div className="content">
-          <Col lg={8} md={8} sm={8} xs={12}>
-              <h2>About Little Lemon</h2>
+          <Col lg={6} md={6} sm={8} xs={12}>
+              <h2>Little Lemon</h2>
               <h3>Chicago</h3>
               <p>
               We are a family owned Mediterranean restaurant, focused on
@@ -18,7 +19,9 @@ export const About = () => {
               <p>
               We are open for lunch and dinner 7 days a week.
               </p>
+              <Button $color="surface" $margintop={"20px"}>Reserve a Table</Button> {/* Call to action button */}
             </Col>
+
         </div>
     </AboutStyle>
   );

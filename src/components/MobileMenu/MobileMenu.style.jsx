@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 /* Only show on mobile */
 export const MobileOnly = styled.div`
-  @media (min-width: 801px) {
+  @media (min-width: 700.91px) {
     display: none;
   }
 `;
