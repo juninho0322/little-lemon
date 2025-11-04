@@ -25,10 +25,8 @@ function App() {
           <Content>
             <About/>
             <FoodMenuHeader/>
-            <FoodMenuNav>
-              
-            </FoodMenuNav>
-            <News/>
+            <FoodMenuNav/>
+              <News/>
           </Content>
         </Col>
         <Col lg={12}>

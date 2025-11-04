@@ -1,11 +1,19 @@
-import { FoodCardImage, FoodCardDescription, FoodCardStyled, FoodCardTitle } from "./FoodCard.style";
+import {
+  FoodCardContainer,
+  FoodCardStyled,
+  FoodCardImage,
+  FoodCardTitle,
+  FoodCardDescription,
+} from "./FoodCard.style.jsx";
 
 export const FoodCard = ({ title, description, imageSrc }) => {
     return (
-        <FoodCardStyled>
-            <FoodCardImage src={imageSrc} alt={title} />
-            <FoodCardTitle>{title}</FoodCardTitle>
-            <FoodCardDescription>{description}</FoodCardDescription>
-        </FoodCardStyled>
+        <FoodCardContainer>
+            <FoodCardStyled>
+                <FoodCardTitle>{title}</FoodCardTitle>
+                <FoodCardImage src={imageSrc} alt={title} />
+                <FoodCardDescription>{description}</FoodCardDescription>
+            </FoodCardStyled>
+        </FoodCardContainer>
     )
 }

@@ -1,17 +1,17 @@
 import { FoodCard } from "../components/FoodCard/FoodCard";
+import { Col, Row } from "react-grid-system";
+import  { newsData }  from "../data/newsData";
 
 export const News = () => (
-    <div>
-        <h2>Latest News</h2>
+  <Row>
+    {newsData.map((item, index) => (
+      <Col lg={4} key={index}>
         <FoodCard
-            title="New Seasonal Menu"
-            description="Explore our new seasonal dishes made with fresh, local ingredients."
-            imageSrc="/images/seasonal-menu.jpg"
+          title={item.title}
+          imageSrc={item.imageSrc}
+          description={item.description}
         />
-        <FoodCard
-            title="Chef's Special Event"
-            description="Join us for a special dining experience with our head chef."
-            imageSrc="/images/chefs-special.jpg"
-        />
-    </div>
+      </Col>
+    ))}
+  </Row>
 );
