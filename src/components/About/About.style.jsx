@@ -7,7 +7,6 @@ import fallbackImg from "../../assets/photos_about/14.jpg";
 export const AboutStyle = styled.section`
   position: relative;
   overflow: hidden;
-  padding: 20px;
   min-height: 40vh;
   color: white;
 
@@ -31,6 +30,7 @@ export const AboutStyle = styled.section`
   .content {
     position: relative;
     z-index: 2;
+    padding: 1rem;
   }
 
   /* Background Swiper fills the section behind everything */
@@ -55,10 +55,11 @@ export const AboutStyle = styled.section`
     display: block;
   }
 
-  h2 {
+  h1 {
     font-size: var(--fs-h2);
     font-family: var(--font-display);
     color: var(--color-primary);
+    margin:0;
   }
   h3 {
     font-size: var(--fs-h3);

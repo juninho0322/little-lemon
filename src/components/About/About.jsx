@@ -9,8 +9,8 @@ export const About = () => {
     <AboutStyle>
       <AboutSwiper />  {/* sits behind as the background */}
         <div className="content">
-          <Col lg={6} md={6} sm={8} xs={12}>
-              <h2>Little Lemon</h2>
+          <Col lg={6} md={6} sm={7} xs={12}>
+              <h1>Little Lemon</h1>
               <h3>Chicago</h3>
               <p>
               We are a family owned Mediterranean restaurant, focused on

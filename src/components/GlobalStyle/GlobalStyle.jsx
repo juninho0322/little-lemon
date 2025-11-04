@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`${normalize}
   --font-body: "Karla", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-heading: 'Markazi Text', serif;
   --fs-h1: clamp(2.25rem, 2.4vw + 1.6rem, 3.25rem);
-  --fs-h2: clamp(1.75rem, 1.6vw + 1.2rem, 2.25rem);
+  --fs-h2: clamp(1.75rem, 1.6vw + 1.2rem, 2rem);
   --fs-h3: 1.5rem;
   --fs-h4: 1.25rem;
 

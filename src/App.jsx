@@ -6,6 +6,10 @@ import { Header } from './components/Header/Header'
 import { Content } from './components/Content/Content'
 import { Footer } from './components/Footer/Footer'
 import { About } from './components/About/About'
+import { FoodMenuHeader } from './components/FoodMenuHeader/FoodMenuHeader'
+import { FoodMenuNav } from './components/FoodMenuNav/FoodMenuNav'
+import  { News }  from './pages/news.jsx'
+
 
 
 function App() {
@@ -20,6 +24,11 @@ function App() {
         <Col>
           <Content>
             <About/>
+            <FoodMenuHeader/>
+            <FoodMenuNav>
+              
+            </FoodMenuNav>
+            <News/>
           </Content>
         </Col>
         <Col lg={12}>
