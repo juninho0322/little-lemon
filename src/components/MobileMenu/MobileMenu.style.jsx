@@ -2,10 +2,19 @@ import styled, { keyframes } from "styled-components";
 
 /* Only show on mobile */
 export const MobileOnly = styled.div`
+  position: relative;           /* allows absolute children */
+  display: flex;
+  align-items: center;
+  justify-content: center;      /* centers the logo */
+  width: 100%;
+  padding: 0 16px;              /* optional, to give some breathing room */
+
   @media (min-width: 700.91px) {
     display: none;
   }
 `;
+
+
 
 export const BurgerButton = styled.button`
   padding: 10px 12px;
@@ -13,7 +22,10 @@ export const BurgerButton = styled.button`
   border: 1px solid #ddd;
   background: #fff;
   cursor: pointer;
-  margin-left: auto;
+
+  position: absolute;
+  right: 5px;    /* 👈 burger on the LEFT */
+
 `;
 
 /* Fullscreen overlay */
@@ -44,8 +56,7 @@ export const Sheet = styled.div`
 
 export const SheetTopBar = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: between;
+
 `;
 
 export const MenuList = styled.ul`
@@ -69,6 +80,7 @@ export const MenuLink = styled.a`
     font-size: 1.1rem;
   }
 `;
+
 
 
 

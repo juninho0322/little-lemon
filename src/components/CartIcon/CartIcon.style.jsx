@@ -28,4 +28,5 @@ export const CartCount = styled.span`
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  z-index: 2;
 `;

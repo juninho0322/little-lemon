@@ -5,6 +5,7 @@ export const FoodMenuNavStyled = styled.nav`
   gap: 1.5rem;
   padding: 1rem 2rem;
   overflow-x: auto;
+  margin-bottom: 2rem;
 
   /* When hovering the nav, unhighlight the first item
      ONLY if the first item itself is not hovered */

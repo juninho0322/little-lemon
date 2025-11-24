@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const NavbarStyled = styled.nav`
   display: flex;
   justify-content: center;
+  align-items: center;
   flex: 1 1 auto;             /* lets nav grow in the middle */
   min-width: 220px;           /* avoids collapsing too small on wrap */
 
@@ -11,11 +12,15 @@ export const NavbarStyled = styled.nav`
   }
 `;
 
+export const NavWrapper = styled.div`
+  margin-right: auto;  /* push to the left */
+
+`;
+
 export const NavList = styled.ul`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+  margin-left: auto;
+  gap: 1rem;
   list-style: none;
   padding: 0;
   margin: 0;

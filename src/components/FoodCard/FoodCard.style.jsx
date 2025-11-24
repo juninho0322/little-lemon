@@ -1,37 +1,148 @@
 import styled from "styled-components";
 
 export const FoodCardContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 2rem;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+ @media (max-width: 574px) {
+  flex-direction: row;
+}
 `;
 
 export const FoodCardStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid var(--color-secondary-text);
-    border-radius: 8px;
-    padding: 1rem;
-    background-color: var(--color-card-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+
+  width: 90%;          /* 🔹 let the Col define the width */
+  max-width: 340px;     /* 🔹 but don’t grow bigger than 340px */
+  min-height: 340px;
+  margin-bottom: 2rem;
+
+  padding: 1rem;
+  background-color: var(--color-surface);
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    border-color: var(--color-primary);
+  }
 `;
+
+
+
+export const FoodCardFooter = styled.div`
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const FoodCardPrice = styled.span`
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+`;
+
 
 export const FoodCardImage = styled.img`
   width: 100%;
-  height: 200px; /* fixed height for all cards */
-  object-fit: cover; /* fills the box and crops overflow */
-  border-radius: 8px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+
+  /* Soft fade-in effect */
+  opacity: 0;
+  animation: fadeIn 0.6s forwards ease-in-out;
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
 `;
 
 export const FoodCardTitle = styled.h4`
-    font-size: var(--fs-h4);
-    color: var(--color-primary-text);
-    margin: 0.5rem 0;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  color: var(--color-secondary);
+  margin: 1rem 0 0.5rem 0;
+  text-align: center;
 `;
 
 export const FoodCardDescription = styled.p`
-    font-size: var(--fs-body);
-    color: var(--color-secondary-text);
-    text-align: center;
+  font-size: 1rem;
+  color: var(--color-secondary-text);
+  text-align: center;
+  flex-grow: 1;
+  padding: 0 0.5rem;
+  line-height: 1.45;
+`;
+
+// Wrapper for qty + button group
+export const FoodCardActions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+// Qty pill
+export const QtyControl = styled.div`
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.02);
+  overflow: hidden;
+`;
+
+// - and + buttons
+export const QtyButton = styled.button`
+  border: none;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: var(--color-se);
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+`;
+
+// Number in the middle
+export const QtyValue = styled.span`
+  min-width: 24px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+
+`;
+
+
+export const HorizontalScroll = styled.div`
+  @media (max-width: 700px) {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+
+    /* hide scrollbar (optional) */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
 `;

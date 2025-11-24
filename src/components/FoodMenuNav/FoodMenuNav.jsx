@@ -1,7 +1,7 @@
 import {FoodMenuNavStyled, FoodMenuNavItem} from "./FoodMenuNav.style";
 
 export const FoodMenuNav = () => {
-    const categories = ['News','All', 'Starters', 'Mains', 'Desserts', 'Drinks'];
+    const categories = ['News','Starters', 'Mains', 'Desserts', 'Drinks'];
 
     return (
         <FoodMenuNavStyled>

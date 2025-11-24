@@ -14,8 +14,13 @@ export const Logo = styled.img.attrs({
 
     padding-bottom: ${({ $paddingbottom }) =>
     $paddingbottom === "small" ? "0px" :
-    $paddingbottom === "large" ? "20px" :
-    "4px"};
+    $paddingbottom === "large" ? "15px" :
+    "5px"};
+
+    padding-top: ${({ $paddingtop }) =>
+    $paddingtop === "small" ? "0px" :
+    $paddingtop === "large" ? "15px" :
+    "5px"};
 
     align-self: center;
 `;
