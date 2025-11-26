@@ -32,7 +32,7 @@ export const NavList = styled.ul`
   }
 `;
 
-export const NavLink = styled.a`
+export const NavLinkStyled = styled.a`
   color: var(--color-primary-text);
   text-decoration: none;
   padding: 8px 10px;

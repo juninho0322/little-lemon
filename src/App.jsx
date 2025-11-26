@@ -4,6 +4,7 @@ import './App.css';
 import AppWrapper from './components/AppWrapper';
 import { Col } from 'react-grid-system';
 import { Header } from './components/Header/Header';
+import { NavBar }  from './components/NavBar/NavBar';
 import { Content } from './components/Content/Content';
 import { Footer } from './components/Footer/Footer';
 import { About } from './components/About/About';
@@ -12,16 +13,16 @@ import { FoodMenuNav } from './components/FoodMenuNav/FoodMenuNav';
 import { News } from './pages/news.jsx';
 
 function App() {
-  const [cart, setCart] = useState({}); // { "Pizza": 2, "Burger": 1 }
+  const [cart, setCart] = useState({});
 
-  const handleAddToCart = ({ title, quantity = 1 }) => {
+  const handleAddToCart = ({ title, quantity = 0 }) => {
     setCart(prev => ({
       ...prev,
       [title]: (prev[title] || 0) + quantity,
     }));
   };
 
-  const handleRemoveFromCart = ({ title, quantity = 1 }) => {
+  const handleRemoveFromCart = ({ title, quantity = 0 }) => {
     setCart(prev => {
       const current = prev[title] || 0;
       const newQty = current - quantity;
@@ -46,7 +47,9 @@ function App() {
       <GlobalStyle />
       <AppWrapper>
         <Col lg={12}>
-          <Header totalItems={totalItems} />
+          <Header totalItems={totalItems}>
+            <NavBar />
+          </Header>
         </Col>
         <Col>
           <Content>

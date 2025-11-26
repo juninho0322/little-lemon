@@ -5,8 +5,6 @@ export const FoodCardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
- @media (max-width: 574px) {
-  flex-direction: row;
 }
 `;
 
@@ -14,7 +12,7 @@ export const FoodCardStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
+  margin: 1rem auto;
 
   width: 90%;          /* 🔹 let the Col define the width */
   max-width: 340px;     /* 🔹 but don’t grow bigger than 340px */
@@ -37,6 +35,13 @@ export const FoodCardStyled = styled.div`
     box-shadow: 0 10px 24px rgba(0,0,0,0.12);
     border-color: var(--color-primary);
   }
+
+  @media (max-width: 575.75px) {
+    max-width: 250px;
+    padding: 0.75rem;
+    margin: 0.4rem auto;        /* 🔹 tighter spacing */
+    border-radius: 12px;
+}
 `;
 
 
@@ -68,6 +73,11 @@ export const FoodCardImage = styled.img`
 
   @keyframes fadeIn {
     to { opacity: 1; }
+  }
+
+    @media (max-width: 575.75px) {
+    height: 140px;   /* 🔹 much more compact */
+    border-radius: 10px;
   }
 `;
 
@@ -139,10 +149,11 @@ export const HorizontalScroll = styled.div`
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 1rem;
+    gap: 0.5rem;
 
     /* hide scrollbar (optional) */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
 `;
+

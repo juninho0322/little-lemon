@@ -1,7 +1,8 @@
-import { NavbarStyled, NavList, NavLink, NavWrapper } from './NavBar.style';
+import { NavbarStyled, NavList, NavLinkStyled, NavWrapper } from './NavBar.style';
 import { Logo } from "../Logo/Logo";
 
-export const Navbar = () => {
+
+export const NavBar = ( ) => {
   return (
     <NavbarStyled aria-label="Primary">
       <NavWrapper>
@@ -9,11 +10,11 @@ export const Navbar = () => {
       </NavWrapper>
       <NavWrapper>
         <NavList>
-          <li><NavLink href="#home" aria-current="page">Home</NavLink></li>
-          <li><NavLink href="#about">About</NavLink></li>
-          <li><NavLink href="#menu">Menu</NavLink></li>
-          <li><NavLink href="#order-online">Order</NavLink></li>
-          <li><NavLink href="#login">Login</NavLink></li>
+          <li><NavLinkStyled href="#home" aria-current="page">Home</NavLinkStyled></li>
+          <li><NavLinkStyled href="#about">About</NavLinkStyled></li>
+          <li><NavLinkStyled href="#menu">Menu</NavLinkStyled></li>
+          <li><NavLinkStyled href="#order-online">Order</NavLinkStyled></li>
+          <li><NavLinkStyled href="#login">Login</NavLinkStyled></li>
         </NavList>
       </NavWrapper>
     </NavbarStyled>

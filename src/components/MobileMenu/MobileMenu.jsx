@@ -3,7 +3,6 @@ import {
   MobileOnly,
   BurgerButton,
   Overlay,
-  Sheet,
   SheetTopBar,
   MenuList,
   MenuLink,
@@ -14,6 +13,7 @@ import { Button } from "../Button/Button";
 import { Logo } from "../Logo/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Modal } from "../Modal/Modal.jsx";
 
 export const MobileMenu = ({ children }) => {
   const [open, setOpen] = useState(false);
@@ -35,7 +35,7 @@ export const MobileMenu = ({ children }) => {
 
       <Overlay $open={open} onClick={() => setOpen(false)} />
 
-      <Sheet $open={open}>
+      <Modal open={open}>
         <SheetTopBar>
           {children}
           <BurgerButton onClick={() => setOpen(false)}>
@@ -51,7 +51,7 @@ export const MobileMenu = ({ children }) => {
           <li><MenuLink href="#login" onClick={() => setOpen(false)}>Login</MenuLink></li>
         </MenuList>
         <Button $color="surface" $margintop="50px" onClick={() => setOpen(false)}>Reserve a Table</Button>
-      </Sheet>
+      </Modal>
     </MobileOnly>
   );
 };

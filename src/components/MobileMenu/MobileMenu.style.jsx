@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 /* Only show on mobile */
 export const MobileOnly = styled.div`
@@ -32,27 +32,12 @@ export const BurgerButton = styled.button`
 export const Overlay = styled.div`
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 9998;
   background: rgba(10, 0, 0, 0.5);
   display: ${({ $open }) => ($open ? "block" : "none")};
 `;
 
-/* Slide-down full menu */
-const slideDown = keyframes`
-  from { transform: translateY(-4%); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-`;
 
-export const Sheet = styled.div`
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  background: #fff;
-  display: ${({ $open }) => ($open ? "flex" : "none")};
-  flex-direction: column;
-  padding: 20px;
-  animation: ${slideDown} 150ms ease-out;
-`;
 
 export const SheetTopBar = styled.div`
   display: flex;

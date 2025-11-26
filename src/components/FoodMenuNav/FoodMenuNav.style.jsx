@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const FoodMenuNavStyled = styled.nav`
   display: flex;
   gap: 1.5rem;
-  padding: 1rem 2rem;
   overflow-x: auto;
+  padding-left: 1rem;
   margin-bottom: 2rem;
 
   /* When hovering the nav, unhighlight the first item
