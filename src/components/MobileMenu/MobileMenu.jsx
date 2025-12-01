@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import {
   MobileOnly,
   BurgerButton,
-  Overlay,
   SheetTopBar,
   MenuList,
   MenuLink,
@@ -28,13 +27,10 @@ export const MobileMenu = ({ children }) => {
 
   return (
     <MobileOnly>
-       <Logo $size="medium" $paddingtop="large"/>
       <BurgerButton onClick={() => setOpen(true)}>
         <FontAwesomeIcon icon={faBars} />
       </BurgerButton>
-
-      <Overlay $open={open} onClick={() => setOpen(false)} />
-
+      <Logo $size="medium"/>
       <Modal open={open}>
         <SheetTopBar>
           {children}

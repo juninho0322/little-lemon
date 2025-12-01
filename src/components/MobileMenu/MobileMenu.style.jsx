@@ -9,7 +9,7 @@ export const MobileOnly = styled.div`
   width: 100%;
   padding: 0 16px;              /* optional, to give some breathing room */
 
-  @media (min-width: 700.91px) {
+  @media (min-width: 768px) {
     display: none;
   }
 `;

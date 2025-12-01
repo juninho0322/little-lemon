@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { GlobalStyle } from './components/GlobalStyle/GlobalStyle';
-import './App.css';
 import AppWrapper from './components/AppWrapper';
-import { Col } from 'react-grid-system';
+import { Col, Hidden } from 'react-grid-system';
 import { Header } from './components/Header/Header';
-import { NavBar }  from './components/NavBar/NavBar';
+import { Navbar } from './components/NavBar/Navbar.jsx';
 import { Content } from './components/Content/Content';
 import { Footer } from './components/Footer/Footer';
 import { About } from './components/About/About';
-import { FoodMenuHeader } from './components/FoodMenuHeader/FoodMenuHeader';
-import { FoodMenuNav } from './components/FoodMenuNav/FoodMenuNav';
 import { News } from './pages/news.jsx';
+import { Logo } from './components/Logo/Logo';
+import { Container } from './components/Container/Container';
+import { H3 } from './components/H3/H3.jsx';
+
+
 
 function App() {
   const [cart, setCart] = useState({});
@@ -48,14 +50,31 @@ function App() {
       <AppWrapper>
         <Col lg={12}>
           <Header totalItems={totalItems}>
-            <NavBar />
+            <Hidden sm xs>
+              <Logo $size="medium" $paddingtop="large"/>
+            </Hidden>
+            <Navbar>
+              <Navbar.NavbarItem href="#home">Home</Navbar.NavbarItem>
+              <Navbar.NavbarItem href="#about">About</Navbar.NavbarItem>
+              <Navbar.NavbarItem href="#menu">Menu</Navbar.NavbarItem>
+              <Navbar.NavbarItem href="#order-online">Order</Navbar.NavbarItem>
+              <Navbar.NavbarItem href="#login">Login</Navbar.NavbarItem>
+            </Navbar>
           </Header>
         </Col>
         <Col>
           <Content>
             <About />
-            <FoodMenuHeader />
-            <FoodMenuNav />
+            <Container>
+              <H3>Order for delivery!</H3>
+            </Container>
+              <Navbar $ignoreMQ>
+                <Navbar.NavbarItem href="#news">News</Navbar.NavbarItem>
+                <Navbar.NavbarItem href="#starters">Starters</Navbar.NavbarItem>
+                <Navbar.NavbarItem href="#main">Main</Navbar.NavbarItem>
+                <Navbar.NavbarItem href="#desserts">Desserts</Navbar.NavbarItem>
+                <Navbar.NavbarItem href="#drinks">Drinks</Navbar.NavbarItem>
+              </Navbar>
             <News
               onAddToCart={handleAddToCart}
               onRemoveFromCart={handleRemoveFromCart}

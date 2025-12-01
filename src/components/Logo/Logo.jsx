@@ -6,6 +6,7 @@ export const Logo = styled.img.attrs({
   alt: "Little Lemon",
 })`
   width: auto;
+  align-self: center;
 
   height: ${({ $size }) =>
     $size === "medium" ? "50px" :
@@ -22,5 +23,5 @@ export const Logo = styled.img.attrs({
     $paddingtop === "large" ? "15px" :
     "5px"};
 
-    align-self: center;
+    
 `;

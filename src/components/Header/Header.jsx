@@ -2,7 +2,6 @@ import { HeaderStyled } from "./Header.style";
 import { MobileMenu } from "../MobileMenu/MobileMenu";
 import { CartIcon } from "../CartIcon/CartIcon";
 import { Modal } from "../Modal/Modal.jsx";
-import { Overlay } from "../MobileMenu/MobileMenu.style"; // reuse your overlay
 import { useState } from "react";
 
 export const Header = ({ totalItems = 0, children }) => {
@@ -20,9 +19,6 @@ export const Header = ({ totalItems = 0, children }) => {
 
       {/* Mobile nav menu */}
       <MobileMenu />
-
-      {/* Cart modal overlay + modal */}
-      <Overlay $open={isCartOpen} onClick={closeCart} />
 
       <Modal open={isCartOpen}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
