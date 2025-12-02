@@ -4,6 +4,11 @@ export const NavbarStyled = styled.nav`
   display: flex;
   gap: 1rem;
 
+  padding-bottom: ${({ $paddingbottom }) =>
+    $paddingbottom === "small" ? "0px" :
+    $paddingbottom === "large" ? "1rem" :
+    "5px"};
+
   /* Default media query (applies only if NOT overridden) */
   ${({ $ignoreMQ }) =>
     !$ignoreMQ &&

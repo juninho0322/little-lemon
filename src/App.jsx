@@ -7,7 +7,7 @@ import { Navbar } from './components/NavBar/Navbar.jsx';
 import { Content } from './components/Content/Content';
 import { Footer } from './components/Footer/Footer';
 import { About } from './components/About/About';
-import { News } from './pages/news.jsx';
+import { MenuSection } from "./components/MenuSection/MenuSection";
 import { Logo } from './components/Logo/Logo';
 import { Container } from './components/Container/Container';
 import { H3 } from './components/H3/H3.jsx';
@@ -16,6 +16,7 @@ import { H3 } from './components/H3/H3.jsx';
 
 function App() {
   const [cart, setCart] = useState({});
+  const [selectedCategory, setSelectedCategory] = useState("news");
 
   const handleAddToCart = ({ title, quantity = 0 }) => {
     setCart(prev => ({
@@ -44,6 +45,7 @@ function App() {
 
   const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
 
+
   return (
     <>
       <GlobalStyle />
@@ -51,7 +53,7 @@ function App() {
         <Col lg={12}>
           <Header totalItems={totalItems}>
             <Hidden sm xs>
-              <Logo $size="medium" $paddingtop="large"/>
+              <Logo $size="medium" $paddingtop="large" />
             </Hidden>
             <Navbar>
               <Navbar.NavbarItem href="#home">Home</Navbar.NavbarItem>
@@ -68,14 +70,30 @@ function App() {
             <Container>
               <H3>Order for delivery!</H3>
             </Container>
-              <Navbar $ignoreMQ>
-                <Navbar.NavbarItem href="#news">News</Navbar.NavbarItem>
-                <Navbar.NavbarItem href="#starters">Starters</Navbar.NavbarItem>
-                <Navbar.NavbarItem href="#main">Main</Navbar.NavbarItem>
-                <Navbar.NavbarItem href="#desserts">Desserts</Navbar.NavbarItem>
-                <Navbar.NavbarItem href="#drinks">Drinks</Navbar.NavbarItem>
-              </Navbar>
-            <News
+            <Navbar $paddingbottom="large" $ignoreMQ>
+              <Navbar.NavbarItem onClick={() => setSelectedCategory("news")}>
+                News
+              </Navbar.NavbarItem>
+
+              <Navbar.NavbarItem onClick={() => setSelectedCategory("starters")}>
+                Starters
+              </Navbar.NavbarItem>
+
+              <Navbar.NavbarItem onClick={() => setSelectedCategory("mains")}>
+                Main
+              </Navbar.NavbarItem>
+
+              <Navbar.NavbarItem onClick={() => setSelectedCategory("desserts")}>
+                Desserts
+              </Navbar.NavbarItem>
+
+              <Navbar.NavbarItem onClick={() => setSelectedCategory("drinks")}>
+                Drinks
+              </Navbar.NavbarItem>
+            </Navbar>
+
+            <MenuSection
+              category={selectedCategory}
               onAddToCart={handleAddToCart}
               onRemoveFromCart={handleRemoveFromCart}
             />

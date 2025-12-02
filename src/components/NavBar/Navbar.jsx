@@ -3,9 +3,9 @@ import { NavbarItem } from './NavbarItem/NavbarItem';
 
 
 
-export const Navbar = ( {children, $ignoreMQ} ) => {
+export const Navbar = ( {children, $ignoreMQ, $paddingbottom} ) => {
   return (
-    <NavbarStyled aria-label="Primary" $ignoreMQ={$ignoreMQ}>
+    <NavbarStyled aria-label="Primary" $ignoreMQ={$ignoreMQ} $paddingbottom={$paddingbottom}>
         <NavList>
             {children}
         </NavList>

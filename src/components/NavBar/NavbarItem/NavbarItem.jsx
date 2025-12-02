@@ -1,6 +1,9 @@
 import { NavbarItemStyled } from "./NavbarItem.style";
 
-export const NavbarItem = ({ href, children }) => {
-
-    return <NavbarItemStyled href={href}>{children}</NavbarItemStyled>;
+export const NavbarItem = ({ onClick, children }) => {
+  return (
+    <NavbarItemStyled onClick={onClick}>
+      {children}
+    </NavbarItemStyled>
+  );
 };
