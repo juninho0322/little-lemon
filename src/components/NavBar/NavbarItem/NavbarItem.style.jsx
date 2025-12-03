@@ -7,6 +7,14 @@ export const NavbarItemStyled = styled.button`
   border-radius: 8px;
   color: var(--color-primary-text);
 
+  /* KEEP HOVER STYLE WHEN ACTIVE */
+  ${({ $active }) =>
+    $active &&
+    `
+      background: var(--color-primary);
+      font-weight: 600;
+    `}
+
   &:hover,
   &:focus-visible {
     background: var(--color-primary);

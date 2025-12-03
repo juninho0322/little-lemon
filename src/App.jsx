@@ -71,23 +71,38 @@ function App() {
               <H3>Order for delivery!</H3>
             </Container>
             <Navbar $paddingbottom="large" $ignoreMQ>
-              <Navbar.NavbarItem onClick={() => setSelectedCategory("news")}>
+              <Navbar.NavbarItem
+                onClick={() => setSelectedCategory("news")}
+                $active={selectedCategory === "news"}
+              >
                 News
               </Navbar.NavbarItem>
 
-              <Navbar.NavbarItem onClick={() => setSelectedCategory("starters")}>
+              <Navbar.NavbarItem
+                onClick={() => setSelectedCategory("starters")}
+                $active={selectedCategory === "starters"}
+              >
                 Starters
               </Navbar.NavbarItem>
 
-              <Navbar.NavbarItem onClick={() => setSelectedCategory("mains")}>
+              <Navbar.NavbarItem
+                onClick={() => setSelectedCategory("mains")}
+                $active={selectedCategory === "mains"}
+              >
                 Main
               </Navbar.NavbarItem>
 
-              <Navbar.NavbarItem onClick={() => setSelectedCategory("desserts")}>
+              <Navbar.NavbarItem
+                onClick={() => setSelectedCategory("desserts")}
+                $active={selectedCategory === "desserts"}
+              >
                 Desserts
               </Navbar.NavbarItem>
 
-              <Navbar.NavbarItem onClick={() => setSelectedCategory("drinks")}>
+              <Navbar.NavbarItem
+                onClick={() => setSelectedCategory("drinks")}
+                $active={selectedCategory === "drinks"}
+              >
                 Drinks
               </Navbar.NavbarItem>
             </Navbar>

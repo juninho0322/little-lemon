@@ -22,6 +22,19 @@ import vegtagine from "../assets/menu_photos/mains/tagine.jpg";
 import seafoodlinguine from "../assets/menu_photos/mains/linguine.jpeg";
 import spinachfetapie from "../assets/menu_photos/mains/feta.jpg";
 
+import lemoncake from "../assets/menu_photos/desserts/lemoncake.jpg";
+import pistachiogelato from "../assets/menu_photos/desserts/pistachiogelato.jpg";
+import orangealmondtorte from "../assets/menu_photos/desserts/almondtorte.jpg";
+import greekyogurthoney from "../assets/menu_photos/desserts/greekyogurt.jpg";
+import chocolatetahinibrownie from "../assets/menu_photos/desserts/chocolatebrownie.jpeg";
+import affogatolimone from "../assets/menu_photos/desserts/affogatolimone.jpg";
+
+import lemonade from "../assets/menu_photos/drinks/homemadelemonade.jpeg";
+import icedtea from "../assets/menu_photos/drinks/icedmediterraneantea.jpg";
+import limoncellospritz from "../assets/menu_photos/drinks/limoncello.jpeg";
+import aegeannegroni from "../assets/menu_photos/drinks/aegeanegroni.jpg";
+import rosecardamomfizz from "../assets/menu_photos/drinks/cardamomfizz.jpg";
+import espresso from "../assets/menu_photos/drinks/espresso.jpg";
 
 
 // “fake API”: one big array with everything
@@ -199,7 +212,7 @@ export const menuItems = [
     id: "dessert-1",
     category: "desserts",
     title: "Lemon Olive Oil Cake",
-    imageSrc: "/assets/menu_photos/desserts/lemon-cake.jpg",
+    imageSrc: lemoncake,
     description:
       "Moist lemon cake made with olive oil, served with whipped cream.",
     price: 6.40,
@@ -208,7 +221,7 @@ export const menuItems = [
     id: "dessert-2",
     category: "desserts",
     title: "Pistachio Gelato",
-    imageSrc: "/assets/menu_photos/desserts/pistachio-gelato.jpg",
+    imageSrc: pistachiogelato,
     description:
       "Rich pistachio gelato topped with crushed nuts.",
     price: 5.80,
@@ -217,7 +230,7 @@ export const menuItems = [
     id: "dessert-3",
     category: "desserts",
     title: "Orange & Almond Torte",
-    imageSrc: "/assets/menu_photos/desserts/orange-almond-torte.jpg",
+    imageSrc: orangealmondtorte,
     description:
       "Flourless almond cake infused with orange zest and syrup.",
     price: 6.95,
@@ -226,7 +239,7 @@ export const menuItems = [
     id: "dessert-4",
     category: "desserts",
     title: "Greek Yogurt & Honey",
-    imageSrc: "/assets/menu_photos/desserts/greek-yogurt-honey.jpg",
+    imageSrc: greekyogurthoney,
     description:
       "Thick Greek yogurt with honey and toasted walnuts.",
     price: 5.50,
@@ -235,7 +248,7 @@ export const menuItems = [
     id: "dessert-5",
     category: "desserts",
     title: "Chocolate Tahini Brownie",
-    imageSrc: "/assets/menu_photos/desserts/tahini-brownie.jpg",
+    imageSrc: chocolatetahinibrownie,
     description:
       "Fudgy brownie with tahini swirl and sea salt.",
     price: 6.20,
@@ -244,7 +257,7 @@ export const menuItems = [
     id: "dessert-6",
     category: "desserts",
     title: "Affogato al Limone",
-    imageSrc: "/assets/menu_photos/desserts/affogato-limone.jpg",
+    imageSrc: affogatolimone,
     description:
       "Lemon gelato topped with a shot of hot espresso.",
     price: 5.90,
@@ -255,7 +268,7 @@ export const menuItems = [
     id: "drink-1",
     category: "drinks",
     title: "Homemade Lemonade",
-    imageSrc: "/assets/menu_photos/drinks/homemade-lemonade.jpg",
+    imageSrc: lemonade,
     description:
       "Freshly squeezed lemon juice with mint and sparkling water.",
     price: 3.80,
@@ -264,7 +277,7 @@ export const menuItems = [
     id: "drink-2",
     category: "drinks",
     title: "Iced Mediterranean Tea",
-    imageSrc: "/assets/menu_photos/drinks/iced-tea.jpg",
+    imageSrc: icedtea,
     description:
       "Black tea infused with lemon, orange, and a hint of rosemary.",
     price: 3.90,
@@ -273,7 +286,7 @@ export const menuItems = [
     id: "drink-3",
     category: "drinks",
     title: "Limoncello Spritz",
-    imageSrc: "/assets/menu_photos/drinks/limoncello-spritz.jpg",
+    imageSrc: limoncellospritz,
     description:
       "Limoncello, prosecco, and soda over ice.",
     price: 7.50,
@@ -282,7 +295,7 @@ export const menuItems = [
     id: "drink-4",
     category: "drinks",
     title: "Aegean Negroni",
-    imageSrc: "/assets/menu_photos/drinks/aegean-negroni.jpg",
+    imageSrc: aegeannegroni,
     description:
       "Classic negroni with Mediterranean botanicals.",
     price: 8.50,
@@ -291,7 +304,7 @@ export const menuItems = [
     id: "drink-5",
     category: "drinks",
     title: "Rose & Cardamom Fizz",
-    imageSrc: "/assets/menu_photos/drinks/rose-cardamom-fizz.jpg",
+    imageSrc: rosecardamomfizz,
     description:
       "Sparkling drink with rose, cardamom, and citrus.",
     price: 4.60,
@@ -300,7 +313,7 @@ export const menuItems = [
     id: "drink-6",
     category: "drinks",
     title: "Espresso",
-    imageSrc: "/assets/menu_photos/drinks/espresso.jpg",
+    imageSrc: espresso,
     description:
       "Rich Italian-style espresso shot.",
     price: 2.40,
