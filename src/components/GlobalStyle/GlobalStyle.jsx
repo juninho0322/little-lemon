@@ -35,8 +35,4 @@ body {
   line-height: 1.5;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: var(--color-secondary); /* lemon */
-}
 `

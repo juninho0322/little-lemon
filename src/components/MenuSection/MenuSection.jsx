@@ -8,50 +8,46 @@ import "swiper/css/navigation";
 
 import { FoodCard } from "../FoodCard/FoodCard";
 import { menuItems } from "../../data/menuData";
-import { HorizontalRow } from "./MenuSection.style";
+import { HorizontalRow, SwiperWrapper } from "./MenuSection.style";
 
 export const MenuSection = ({ category, onAddToCart, onRemoveFromCart }) => {
   const items = menuItems.filter((item) => item.category === category);
 
-  const [isMobile, setIsMobile] = useState(
-    window.innerWidth <= 575.45
-  );
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 575.45);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 575.45);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  /* 🔹 MOBILE → Swiper */
   if (isMobile) {
     return (
-      <Swiper
-        modules={[Navigation]}
-        navigation
-        spaceBetween={16}
-        slidesPerView={1.1}
-      >
-        {items.map((item) => (
-          <SwiperSlide key={item.id}>
-            <FoodCard
-              title={item.title}
-              description={item.description}
-              imageSrc={item.imageSrc}
-              price={item.price}
-              onAddToCart={onAddToCart}
-              onRemoveFromCart={onRemoveFromCart}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <SwiperWrapper>
+        <Swiper
+          modules={[Navigation]}
+          navigation
+          spaceBetween={16}
+          slidesPerView={1}
+        >
+          {items.map((item) => (
+            <SwiperSlide key={item.id}>
+              <FoodCard
+                title={item.title}
+                description={item.description}
+                imageSrc={item.imageSrc}
+                price={item.price}
+                onAddToCart={onAddToCart}
+                onRemoveFromCart={onRemoveFromCart}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </SwiperWrapper>
     );
   }
 
-  /* 🔹 TABLET / DESKTOP → Grid */
   return (
     <HorizontalRow>
       {items.map((item) => (
