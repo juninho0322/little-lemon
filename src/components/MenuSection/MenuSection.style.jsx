@@ -11,31 +11,29 @@ export const HorizontalRow = styled(Row)`
 export const SwiperWrapper = styled.div`
   width: 100%;
 
-  /* give space so slides sit between arrows */
+  /* Reserve space for pagination BELOW cards */
   .swiper {
-    padding: 0 36px;
+    padding-bottom: 32px; /* 👈 space for dots */
     box-sizing: border-box;
   }
 
-  /* arrows color */
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: var(--color-secondary);
+  /* Pagination container sits in the reserved space */
+  .swiper-pagination {
+    bottom: 8px;
   }
 
-  /* symmetric arrow positioning */
-  .swiper-button-prev {
-    left: 8px;
+  /* Pagination dots */
+  .swiper-pagination-bullet {
+    background: var(--color-secondary);
+    opacity: 0.4;
+    width: 8px;
+    height: 8px;
+    transition: all 0.2s ease;
   }
 
-  .swiper-button-next {
-    right: 8px;
+  .swiper-pagination-bullet-active {
+    background: var(--color-secondary); /* better contrast */
+    opacity: 1;
+    transform: scale(1.2);
   }
-
-  /* arrow icon size */
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    font-size: 22px;
-  }
-`
-;
+`;

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Col } from "react-grid-system";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import { FoodCard } from "../FoodCard/FoodCard";
 import { menuItems } from "../../data/menuData";
@@ -26,10 +26,10 @@ export const MenuSection = ({ category, onAddToCart, onRemoveFromCart }) => {
     return (
       <SwiperWrapper>
         <Swiper
-          modules={[Navigation]}
-          navigation
-          spaceBetween={16}
-          slidesPerView={1}
+          modules={[Pagination]}
+          pagination={{ clickable: true }}
+          spaceBetween={10}
+          slidesPerView={1.20}
         >
           {items.map((item) => (
             <SwiperSlide key={item.id}>
