@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.deb
+google-chrome-stable_current_amd64.deb
