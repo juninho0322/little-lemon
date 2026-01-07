@@ -288,7 +288,7 @@ export const menuItems = [
     title: "Limoncello Spritz",
     imageSrc: limoncellospritz,
     description:
-      "Limoncello, prosecco, and soda over ice.",
+      "Limoncello, prosecco, and soda over ice",
     price: 7.50,
   },
   {
