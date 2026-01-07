@@ -1,12 +1,59 @@
-# React + Vite
+# 🍋 Little Lemon – React Restaurant App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Little Lemon** is a responsive restaurant web application built with **React**, focused on clean UI, modern component architecture, and real-world state management patterns.
 
-Currently, two official plugins are available:
+This project is part of my front-end development portfolio and was designed to demonstrate how a production-style React app handles **global state, component composition, and UI behaviour** without unnecessary complexity.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Live Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📋 Dynamic food menu by category (News, Starters, Mains, Desserts, Drinks)
+- 🛒 Global cart state (shared across the entire app)
+- ➕➖ Add / remove items from both **Food Cards** and **Cart Modal**
+- 🔢 Cart quantity persists when switching categories
+- 🖼️ Cart modal displays item images, quantities, line totals, and total price
+- 📱 Mobile-friendly carousel using Swiper
+- 💻 Responsive layout for desktop and mobile
+- 🎨 Styled using **styled-components**
+
+---
+
+## 🧠 Key Concepts Demonstrated
+
+This project intentionally focuses on **core React fundamentals** used in real applications:
+
+- **Single Source of Truth**  
+  Cart state lives in one place (`App.jsx`) and drives all UI.
+
+- **Derived UI**  
+  Quantities on food cards and in the cart modal are derived from global state.
+
+- **Props Down / Events Up**  
+  Child components never mutate state directly — they request changes via callbacks.
+
+- **State Lifting**  
+  Fixed a real bug caused by component unmounting when switching categories.
+
+- **Clean Separation of Concerns**  
+  - Logic → component files  
+  - Styling → `*.style.jsx` files  
+  - Data → shared menu data file  
+
+---
+
+## 🏗️ Tech Stack
+
+- **React**
+- **JavaScript (ES6+)**
+- **styled-components**
+- **Swiper.js**
+- **react-grid-system**
+- **Vite**
+- **Git & GitHub**
+
+---
+
+## 📂 Project Structure (simplified)
+
+
