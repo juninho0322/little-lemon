@@ -10,7 +10,7 @@ import { FoodCard } from "../FoodCard/FoodCard";
 import { menuItems } from "../../data/menuData";
 import { HorizontalRow, SwiperWrapper } from "./MenuSection.style";
 
-export const MenuSection = ({ category, onAddToCart, onRemoveFromCart }) => {
+export const MenuSection = ({ category, cart, onAddToCart, onRemoveFromCart }) => {
   const items = menuItems.filter((item) => item.category === category);
 
   const [isMobile, setIsMobile] = useState(false);
@@ -34,6 +34,8 @@ export const MenuSection = ({ category, onAddToCart, onRemoveFromCart }) => {
           {items.map((item) => (
             <SwiperSlide key={item.id}>
               <FoodCard
+                id={item.id}
+                qty={cart[String(item.id)] || 0}
                 title={item.title}
                 description={item.description}
                 imageSrc={item.imageSrc}
@@ -53,6 +55,8 @@ export const MenuSection = ({ category, onAddToCart, onRemoveFromCart }) => {
       {items.map((item) => (
         <Col xs={12} sm={6} md={6} lg={4} key={item.id}>
           <FoodCard
+            id={item.id}
+            qty={cart[String(item.id)] || 0}
             title={item.title}
             description={item.description}
             imageSrc={item.imageSrc}

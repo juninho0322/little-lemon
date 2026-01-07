@@ -1,5 +1,4 @@
 // FoodCard.jsx
-import { useState } from "react";
 import {
   FoodCardStyled,
   FoodCardImage,
@@ -14,40 +13,21 @@ import {
 } from "./FoodCard.style";
 
 export const FoodCard = ({
+  id,
   title,
   description,
   imageSrc,
   price,
+  qty = 0,
   onAddToCart,
   onRemoveFromCart,
 }) => {
-  const [qty, setQty] = useState(0);
-
   const handleIncrease = () => {
-    const newQty = qty + 1;
-    setQty(newQty);
-
-    if (onAddToCart) {
-      onAddToCart({
-        title,
-        price,
-        quantity: 1, // always add 1
-      });
-    }
+    onAddToCart?.({ id: String(id), quantity: 1 });
   };
 
   const handleDecrease = () => {
-    if (qty > 0) {
-      const newQty = qty - 1;
-      setQty(newQty);
-
-      if (onRemoveFromCart) {
-        onRemoveFromCart({
-          title,
-          quantity: 1, // always remove 1
-        });
-      }
-    }
+    if (qty > 0) onRemoveFromCart?.({ id: String(id), quantity: 1 });
   };
 
   return (
@@ -61,15 +41,9 @@ export const FoodCard = ({
 
         <FoodCardActions>
           <QtyControl>
-            <QtyButton onClick={handleDecrease} disabled={qty === 0}>
-              -
-            </QtyButton>
-
+            <QtyButton onClick={handleDecrease} disabled={qty === 0}>-</QtyButton>
             <QtyValue>{qty}</QtyValue>
-
-            <QtyButton onClick={handleIncrease}>
-              +
-            </QtyButton>
+            <QtyButton onClick={handleIncrease}>+</QtyButton>
           </QtyControl>
         </FoodCardActions>
       </FoodCardFooter>

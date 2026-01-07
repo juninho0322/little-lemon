@@ -9,7 +9,6 @@ import { Footer } from './components/Footer/Footer';
 import { About } from './components/About/About';
 import { MenuSection } from "./components/MenuSection/MenuSection";
 import { Logo } from './components/Logo/Logo';
-import { Container } from './components/Container/Container';
 import { H3 } from './components/H3/H3.jsx';
 
 
@@ -18,27 +17,27 @@ function App() {
   const [cart, setCart] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("news");
 
-  const handleAddToCart = ({ title, quantity = 0 }) => {
+  const handleAddToCart = ({ id, quantity = 0 }) => {
     setCart(prev => ({
       ...prev,
-      [title]: (prev[title] || 0) + quantity,
+      [id]: (prev[id] || 0) + quantity,
     }));
   };
 
-  const handleRemoveFromCart = ({ title, quantity = 0 }) => {
+  const handleRemoveFromCart = ({ id, quantity = 0 }) => {
     setCart(prev => {
-      const current = prev[title] || 0;
+      const current = prev[id] || 0;
       const newQty = current - quantity;
 
       if (newQty <= 0) {
         const updated = { ...prev };
-        delete updated[title];
+        delete updated[id];
         return updated;
       }
 
       return {
         ...prev,
-        [title]: newQty,
+        [id]: newQty,
       };
     });
   };
@@ -51,7 +50,12 @@ function App() {
       <GlobalStyle />
       <AppWrapper>
         <Col lg={12}>
-          <Header totalItems={totalItems}>
+          <Header
+            totalItems={totalItems}
+            cart={cart}
+            onAddToCart={handleAddToCart}
+            onRemoveFromCart={handleRemoveFromCart}
+          >
             <Hidden sm xs>
               <Logo $size="medium" $paddingtop="large" />
             </Hidden>
@@ -67,9 +71,7 @@ function App() {
         <Col>
           <Content>
             <About />
-            <Container>
-              <H3>Order for delivery!</H3>
-            </Container>
+            <H3>Order for delivery!</H3>
             <Navbar $paddingbottom="large" $ignoreMQ>
               <Navbar.NavbarItem
                 onClick={() => setSelectedCategory("news")}
@@ -109,6 +111,7 @@ function App() {
 
             <MenuSection
               category={selectedCategory}
+              cart={cart}
               onAddToCart={handleAddToCart}
               onRemoveFromCart={handleRemoveFromCart}
             />
