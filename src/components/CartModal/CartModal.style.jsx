@@ -46,16 +46,6 @@ export const CartPrice = styled.div`
   opacity: 0.8;
 `;
 
-export const QtyControls = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`;
-
-export const QtyValue = styled.span`
-  min-width: 20px;
-  text-align: center;
-`;
 
 export const CartTotal = styled.div`
   margin-top: 16px;
@@ -66,4 +56,6 @@ export const CartTotal = styled.div`
 
 export const CartFooter = styled.div`
   margin-top: 16px;
+  display: flex;
+  justify-content: center;
 `;

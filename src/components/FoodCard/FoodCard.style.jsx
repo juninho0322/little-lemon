@@ -38,6 +38,7 @@ export const FoodCardStyled = styled.div`
 
   @media (max-width: 575.75px) {
     max-width: 250px;
+    height: 360px; 
     padding: 0.75rem;
     margin: 0.4rem auto;        /* 🔹 tighter spacing */
     border-radius: 12px;
@@ -47,6 +48,7 @@ export const FoodCardStyled = styled.div`
 
 
 export const FoodCardFooter = styled.div`
+  height: 48px; 
   margin-top: 1rem;
   width: 100%;
   display: flex;
@@ -96,6 +98,11 @@ export const FoodCardDescription = styled.p`
   flex-grow: 1;
   padding: 0 0.5rem;
   line-height: 1.45;
+
+   display: -webkit-box;
+  -webkit-line-clamp: 3;      /* 🔥 max lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
 // Wrapper for qty + button group

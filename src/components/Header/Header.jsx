@@ -4,6 +4,9 @@ import { CartIcon } from "../CartIcon/CartIcon";
 import { Modal } from "../Modal/Modal.jsx";
 import { useMemo, useState } from "react";
 import { menuItems } from "../../data/menuData";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "../Button/Button.jsx";
 
 import {
   CartHeader,
@@ -13,11 +16,16 @@ import {
   CartInfo,
   CartTitle,
   CartPrice,
-  QtyControls,
-  QtyValue,
   CartTotal,
   CartFooter,
-} from "./HeaderCart.style";
+} from "../CartModal/CartModal.style.jsx";
+
+import  {
+  QtyControl,
+  QtyButton,
+  QtyValue,
+} from "../FoodCard/FoodCard.style.jsx";
+
 
 export const Header = ({
   totalItems = 0,
@@ -56,7 +64,7 @@ export const Header = ({
       <Modal open={isCartOpen}>
         <CartHeader>
           <h2>Your Cart</h2>
-          <button onClick={closeCart}>✕</button>
+          <FontAwesomeIcon icon={faXmark} onClick={closeCart} />
         </CartHeader>
 
         {cartLines.length === 0 ? (
@@ -71,13 +79,13 @@ export const Header = ({
                   <CartInfo>
                     <CartTitle>{item.title}</CartTitle>
                     <CartPrice>
-                      £{item.price} • Line: £
+                    £{item.price} • Total: £
                       {(Number(item.price) * item.qty).toFixed(2)}
                     </CartPrice>
                   </CartInfo>
 
-                  <QtyControls>
-                    <button
+                  <QtyControl>
+                    <QtyButton
                       onClick={() =>
                         onRemoveFromCart({
                           id: String(item.id),
@@ -87,11 +95,11 @@ export const Header = ({
                       disabled={item.qty === 0}
                     >
                       -
-                    </button>
+                    </QtyButton>
 
                     <QtyValue>{item.qty}</QtyValue>
 
-                    <button
+                    <QtyButton
                       onClick={() =>
                         onAddToCart({
                           id: String(item.id),
@@ -100,8 +108,8 @@ export const Header = ({
                       }
                     >
                       +
-                    </button>
-                  </QtyControls>
+                    </QtyButton>
+                  </QtyControl>
                 </CartItem>
               ))}
             </CartList>
@@ -114,9 +122,9 @@ export const Header = ({
         )}
 
         <CartFooter>
-          <button onClick={closeCart} style={{ width: "100%" }}>
-            Close
-          </button>
+          <Button onClick={closeCart} $color={"--color-secondary"}>
+            Check Out
+          </Button>
         </CartFooter>
       </Modal>
     </HeaderStyled>
