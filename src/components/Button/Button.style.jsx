@@ -11,6 +11,7 @@ export const ButtonStyled = styled.button`
   font-weight: 500;
   cursor: pointer;
   align-self: center;
+  width: ${({ $width }) => ($width ? $width : "auto")};
 
   &:hover,
   &:focus {

@@ -37,7 +37,7 @@ export const FoodCard = ({
       <FoodCardDescription>{description}</FoodCardDescription>
 
       <FoodCardFooter>
-        {price && <FoodCardPrice>£{price}</FoodCardPrice>}
+        {price && <FoodCardPrice>£{Number(price).toFixed(2)}</FoodCardPrice>}
 
         <FoodCardActions>
           <QtyControl>

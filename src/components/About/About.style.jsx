@@ -4,7 +4,9 @@ import styled from "styled-components";
 // (Optional) keep a static image as a fallback if JS/Swiper fails
 import fallbackImg from "../../assets/photos_about/14.jpg";
 
-export const AboutStyle = styled.section`
+export const AboutStyle = styled.section.attrs({
+  id: "about",
+})`
   position: relative;
   overflow: hidden;
   min-height: 40vh;

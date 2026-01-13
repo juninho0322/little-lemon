@@ -58,4 +58,5 @@ export const CartFooter = styled.div`
   margin-top: 16px;
   display: flex;
   justify-content: center;
+  gap: 2rem;
 `;

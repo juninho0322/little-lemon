@@ -30,7 +30,7 @@ export const MobileMenu = ({ children }) => {
       <BurgerButton onClick={() => setOpen(true)}>
         <FontAwesomeIcon icon={faBars} />
       </BurgerButton>
-      <Logo $size="medium"/>
+      <Logo $size="medium" $marginright="large" />
       <Modal open={open}>
         <SheetTopBar>
           {children}

@@ -79,7 +79,7 @@ export const Header = ({
                   <CartInfo>
                     <CartTitle>{item.title}</CartTitle>
                     <CartPrice>
-                    £{item.price} • Total: £
+                    £{Number(item.price).toFixed(2)} • Total: £
                       {(Number(item.price) * item.qty).toFixed(2)}
                     </CartPrice>
                   </CartInfo>
@@ -122,8 +122,11 @@ export const Header = ({
         )}
 
         <CartFooter>
-          <Button onClick={closeCart} $color={"--color-secondary"}>
-            Check Out
+          <Button onClick={closeCart} $color={"--color-secondary"} $width={"8rem"}>
+            Checkout
+          </Button>
+          <Button onClick={closeCart} $color={"--color-secondary"} $width={"8rem"}>
+            Log In
           </Button>
         </CartFooter>
       </Modal>

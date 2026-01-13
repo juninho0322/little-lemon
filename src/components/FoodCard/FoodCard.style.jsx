@@ -17,7 +17,6 @@ export const FoodCardStyled = styled.div`
   width: 90%;          /* 🔹 let the Col define the width */
   max-width: 340px;     /* 🔹 but don’t grow bigger than 340px */
   min-height: 340px;
-  margin-bottom: 2rem;
 
   padding: 1rem;
   background-color: var(--color-surface);
@@ -38,7 +37,7 @@ export const FoodCardStyled = styled.div`
 
   @media (max-width: 575.75px) {
     max-width: 250px;
-    height: 360px; 
+    height: 360px;
     padding: 0.75rem;
     margin: 0.4rem auto;        /* 🔹 tighter spacing */
     border-radius: 12px;
@@ -48,7 +47,7 @@ export const FoodCardStyled = styled.div`
 
 
 export const FoodCardFooter = styled.div`
-  height: 48px; 
+  height: 48px;
   margin-top: 1rem;
   width: 100%;
   display: flex;

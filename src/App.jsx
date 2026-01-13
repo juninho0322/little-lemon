@@ -10,6 +10,7 @@ import { About } from './components/About/About';
 import { MenuSection } from "./components/MenuSection/MenuSection";
 import { Logo } from './components/Logo/Logo';
 import { H3 } from './components/H3/H3.jsx';
+import { Customers } from './components/Customers/Customers.jsx';
 
 
 
@@ -64,7 +65,7 @@ function App() {
               <Navbar.NavbarItem href="#about">About</Navbar.NavbarItem>
               <Navbar.NavbarItem href="#menu">Menu</Navbar.NavbarItem>
               <Navbar.NavbarItem href="#order-online">Order</Navbar.NavbarItem>
-              <Navbar.NavbarItem href="#login">Login</Navbar.NavbarItem>
+              <Navbar.NavbarItem href="#footer">Login</Navbar.NavbarItem>
             </Navbar>
           </Header>
         </Col>
@@ -115,6 +116,7 @@ function App() {
               onAddToCart={handleAddToCart}
               onRemoveFromCart={handleRemoveFromCart}
             />
+            <Customers />
           </Content>
         </Col>
 

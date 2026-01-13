@@ -23,5 +23,9 @@ export const Logo = styled.img.attrs({
     $paddingtop === "large" ? "15px" :
     "5px"};
 
-    
+    margin-right: ${({ $marginright }) =>
+    $marginright === "small" ? "0px" :
+    $marginright === "large" ? "2rem" :
+    "5px"};
+
 `;

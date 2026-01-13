@@ -1,8 +1,24 @@
 import { NavbarItemStyled } from "./NavbarItem.style";
 
-export const NavbarItem = ({ onClick, children, $active }) => {
+export const NavbarItem = ({ children, href, $active, onClick}) => {
+  // If it has href -> render as anchor (scroll)
+  if (href) {
+    return (
+      <NavbarItemStyled as="a" href={href}>
+        {children}
+      </NavbarItemStyled>
+    );
+  }
+
+  // Otherwise -> normal button (categories)
   return (
-    <NavbarItemStyled onClick={onClick} $active={$active}>
+    <NavbarItemStyled
+      as="button"
+      type="button"
+      onClick={onClick}
+      $active={$active}
+
+    >
       {children}
     </NavbarItemStyled>
   );
