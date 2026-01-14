@@ -3,19 +3,28 @@ import styled from "styled-components";
 export const CustomersWrapper = styled.section`
   padding: 3rem 0;
   text-align: center;
+
+  width: 100%;
+  max-width: 1200px;   /* match your site container */
   margin: 0 auto;
+
+  /* ✅ prevents any “stretch past screen” */
+  overflow-x: hidden;
 `;
 
 export const SliderWrap = styled.div`
   margin-top: 2rem;
+  width: 100%;
 
-  /* ✅ Give room for shadow + hover and avoid clipping */
+  /* ✅ keep Swiper inside the wrapper */
+  overflow: hidden; /* hides anything that would stretch layout */
+
   .swiper {
-    padding: 16px 44px 24px; /* top + bottom breathing room */
-    overflow: visible;       /* IMPORTANT: show shadow/hover */
+    width: 100%;
+    padding: 16px 44px 24px;
+    box-sizing: border-box;
   }
 
-  /* ✅ Keep slide heights consistent */
   .swiper-wrapper {
     align-items: stretch;
   }
@@ -23,7 +32,7 @@ export const SliderWrap = styled.div`
   .swiper-slide {
     height: auto;
     display: flex;
-    padding: 12px 0; /* ✅ space above/below each card */
+    padding: 12px 0;
   }
 
   .swiper-button-prev,
@@ -31,6 +40,7 @@ export const SliderWrap = styled.div`
     color: var(--color-primary);
   }
 `;
+
 
 export const CustomerCard = styled.div`
   display: flex;
