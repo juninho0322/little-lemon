@@ -3,7 +3,7 @@ import { Navigation } from "swiper/modules";
 import { reviews } from "../../data/reviewData";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+
 
 import {
   CustomersWrapper,

@@ -3,17 +3,27 @@ import styled from "styled-components";
 export const CustomersWrapper = styled.section`
   padding: 3rem 0;
   text-align: center;
+  margin: 0 auto;
 `;
 
 export const SliderWrap = styled.div`
   margin-top: 2rem;
 
+  /* ✅ Give room for shadow + hover and avoid clipping */
   .swiper {
-    padding: 0 44px 40px;
+    padding: 16px 44px 24px; /* top + bottom breathing room */
+    overflow: visible;       /* IMPORTANT: show shadow/hover */
   }
 
-  .swiper-pagination {
-    bottom: 0 !important;
+  /* ✅ Keep slide heights consistent */
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .swiper-slide {
+    height: auto;
+    display: flex;
+    padding: 12px 0; /* ✅ space above/below each card */
   }
 
   .swiper-button-prev,
@@ -22,22 +32,18 @@ export const SliderWrap = styled.div`
   }
 `;
 
-/**
- * ✅ IDENTICAL "card shell" to FoodCardStyled:
- * - same width/max-width/min-height
- * - same padding/border/radius/shadow
- * - same hover transform + shadow + border-color
- * - same mobile max-width + height + padding + margin + radius
- */
 export const CustomerCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem auto;
 
+  margin: 0 auto; /* center within slide */
   width: 90%;
   max-width: 340px;
-  min-height: auto;
+
+  /* ✅ Consistent height, but not “cut” */
+  min-height: 240px;
+
 
   padding: 1rem;
   background-color: var(--color-surface);
@@ -58,13 +64,12 @@ export const CustomerCard = styled.div`
 
   @media (max-width: 575.75px) {
     max-width: 250px;
+
     padding: 0.75rem;
-    margin: 0.4rem auto;
     border-radius: 12px;
   }
 `;
 
-/* Avatar behaves like your FoodCardImage: consistent size + nice crop */
 export const Avatar = styled.img`
   width: 92px;
   height: 92px;
@@ -101,7 +106,6 @@ export const StarsWrap = styled.div`
   margin-bottom: 0.75rem;
 `;
 
-/* Same “clamp text to 3 lines” vibe you used in FoodCardDescription */
 export const Text = styled.p`
   font-size: 1rem;
   color: var(--color-secondary-text);
@@ -109,6 +113,9 @@ export const Text = styled.p`
   flex-grow: 1;
   padding: 0 0.5rem;
   line-height: 1.45;
+
+  /* ✅ kill default <p> margins so heights are consistent */
+  margin: 0;
 
   display: -webkit-box;
   -webkit-line-clamp: 3;
