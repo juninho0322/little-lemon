@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col } from "react-grid-system";
+import { Col,Row } from "react-grid-system";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
@@ -51,7 +51,7 @@ export const MenuSection = ({ category, cart, onAddToCart, onRemoveFromCart }) =
   }
 
   return (
-    <HorizontalRow>
+    <Row>
       {items.map((item) => (
         <Col xs={12} sm={6} md={6} lg={4} key={item.id}>
           <FoodCard
@@ -66,6 +66,6 @@ export const MenuSection = ({ category, cart, onAddToCart, onRemoveFromCart }) =
           />
         </Col>
       ))}
-    </HorizontalRow>
+      </Row>
   );
 };
