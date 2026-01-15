@@ -1,27 +1,21 @@
-import { Row } from "react-grid-system";
+
 import styled from "styled-components";
 
 
-export const HorizontalRow = styled(Row)`
-  @media (max-width: 575.45px) {
-    flex-wrap: nowrap !important;
-    overflow-x: auto;
 
-  }
-
-`
 export const SwiperWrapper = styled.div`
   width: 100%;
 
   /* Reserve space for pagination BELOW cards */
   .swiper {
-    padding-bottom: 32px; /* 👈 space for dots */
+    padding-bottom: 60px; /* 👈 space for dots */
     box-sizing: border-box;
   }
 
   /* Pagination container sits in the reserved space */
   .swiper-pagination {
-    bottom: 8px;
+    bottom: 5px;
+    padding-top: 15px;
   }
 
   /* Pagination dots */

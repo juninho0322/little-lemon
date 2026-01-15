@@ -1,19 +1,21 @@
 import styled from "styled-components";
 
 export const CustomersWrapper = styled.section`
-  padding: 3rem 0;
+  padding: 1rem 0;
   text-align: center;
-
-  width: 100%;
-  max-width: 1200px;   /* match your site container */
-  margin: 0 auto;
-
   /* ✅ prevents any “stretch past screen” */
   overflow-x: hidden;
+  background-color: var(--color-secondary);
+  margin-top: 1rem;
+
+    /* 🔥 Force full viewport width */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 `;
 
 export const SliderWrap = styled.div`
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 100%;
 
   /* ✅ keep Swiper inside the wrapper */
@@ -21,7 +23,7 @@ export const SliderWrap = styled.div`
 
   .swiper {
     width: 100%;
-    padding: 16px 44px 24px;
+    padding: 16px 15px 24px; /* ✅ 15px matches Col gutter */
     box-sizing: border-box;
   }
 
@@ -32,12 +34,15 @@ export const SliderWrap = styled.div`
   .swiper-slide {
     height: auto;
     display: flex;
-    padding: 12px 0;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
   }
 
   .swiper-button-prev,
   .swiper-button-next {
     color: var(--color-primary);
+    width: 48px;
+    height: 48px;
   }
 `;
 

@@ -5,5 +5,6 @@ export const H3styled = styled.h3.attrs({
         id: "menu",
     })`
     font-size: var(--fs-h3);
-    color: var(--color-secondary-text);
+    color: ${({ color }) => color || 'var(--color-secondary)'};
 `;
+

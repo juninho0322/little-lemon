@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 import { FoodCard } from "../FoodCard/FoodCard";
 import { menuItems } from "../../data/menuData";
-import { HorizontalRow, SwiperWrapper } from "./MenuSection.style";
+import { SwiperWrapper } from "./MenuSection.style";
 
 export const MenuSection = ({ category, cart, onAddToCart, onRemoveFromCart }) => {
   const items = menuItems.filter((item) => item.category === category);

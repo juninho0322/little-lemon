@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { H3 } from "../H3/H3";
 import { reviews } from "../../data/reviewData";
+import { Button } from "../Button/Button";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -19,7 +21,7 @@ import {
 export const Customers = () => {
   return (
     <CustomersWrapper>
-      <h2>What Our Clients Say</h2>
+      <H3 color="var(--color-primary)">What Our Clients Say</H3>
 
       <SliderWrap>
         <Swiper
@@ -50,6 +52,7 @@ export const Customers = () => {
           ))}
         </Swiper>
       </SliderWrap>
+      <Button variant="primary">Give us a Review!</Button>
     </CustomersWrapper>
   );
 };

@@ -12,6 +12,10 @@ export const AboutStyle = styled.section.attrs({
   min-height: 40vh;
   color: white;
 
+   width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+
   /* Fallback background if Swiper doesn't load */
   background-image: url(${fallbackImg});
   background-size: cover;
@@ -32,7 +36,7 @@ export const AboutStyle = styled.section.attrs({
   .content {
     position: relative;
     z-index: 2;
-    padding: 1rem;
+    padding: 1rem 0;
   }
 
   /* Background Swiper fills the section behind everything */
