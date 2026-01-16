@@ -22,7 +22,8 @@ import {
 
 export const Customers = () => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false); // 👈 modal state
+  const [isModalOpen, setIsModalOpen] = useState(false); // 👈 modal state
+  const [showThanks, setShowThanks] = useState(false);
 
   return (
     <CustomersWrapper>
@@ -57,7 +58,7 @@ export const Customers = () => {
           ))}
         </Swiper>
       </SliderWrap>
-          {/* 👇 Open modal on click */}
+      {/* 👇 Open modal on click */}
       <Button variant="primary" onClick={() => setIsModalOpen(true)}>
         Give us a Review!
       </Button>
@@ -66,10 +67,20 @@ export const Customers = () => {
       <ReviewModal
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onSubmit={(data) => {
-          console.log("New review:", data);
+        onSubmit={(review) => {
+          console.log("New review:", review);
+          setShowThanks(true);
+
+          setTimeout(() => {
+            setShowThanks(false);
+          }, 2500);
         }}
       />
+      {showThanks && (
+        <div className="review-toast">
+          Thank you for your review! ⭐
+        </div>
+      )}
     </CustomersWrapper>
   );
 };

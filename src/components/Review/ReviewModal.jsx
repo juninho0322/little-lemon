@@ -33,6 +33,7 @@ export const ReviewModal = ({ open, onClose, onSubmit }) => {
     const [rating, setRating] = useState(5);
     const [text, setText] = useState("");
 
+
     // photo handling
     const [photoFile, setPhotoFile] = useState(null);
     const [photoPreview, setPhotoPreview] = useState("");
@@ -89,21 +90,30 @@ export const ReviewModal = ({ open, onClose, onSubmit }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // ✅ force showing errors
         setTouched(true);
-        if (!isValid) return;
+
+        // ✅ validate NOW (synchronously)
+        const eObj = {};
+        if (!name.trim()) eObj.name = "Please enter your name.";
+        if (text.trim().length < 10) eObj.text = "Please write at least 10 characters.";
+        if (rating < 1 || rating > 5) eObj.rating = "Rating must be between 1 and 5.";
+
+        // ✅ stop here if invalid (DO NOT close modal)
+        if (Object.keys(eObj).length > 0) return;
 
         const payload = {
             name: name.trim(),
             rating,
             text: text.trim(),
-            // send preview url for immediate UI display; persist a base64 later if needed
             photoPreview,
             photoFile,
             createdAt: new Date().toISOString(),
         };
 
         onSubmit?.(payload);
-        handleCancel();
+        handleCancel(); // ✅ close only when valid
     };
 
     return (

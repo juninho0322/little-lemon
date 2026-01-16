@@ -35,4 +35,30 @@ body {
   line-height: 1.5;
 }
 
+.review-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: var(--color-primary);
+  color: #111;
+  padding: 12px 18px;
+  border-radius: 999px;
+
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+  animation: fadeInOut 2.5s ease forwards;
+  z-index: 99999;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
 `
