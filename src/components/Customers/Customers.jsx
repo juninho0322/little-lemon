@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useRef, useMemo, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { H3 } from "../H3/H3";
@@ -21,6 +21,8 @@ import {
 export const Customers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showThanks, setShowThanks] = useState(false);
+  const swiperRef = useRef(null);
+
 
   // ✅ store reviews created from modal
   const [userReviews, setUserReviews] = useState([]);
@@ -45,6 +47,7 @@ export const Customers = () => {
             576: { slidesPerView: 2 },
             992: { slidesPerView: 3 },
           }}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
         >
           {allReviews.map((r, idx) => (
             <SwiperSlide key={r.createdAt ? `user-${r.createdAt}` : `fixed-${idx}`}>
@@ -77,6 +80,11 @@ export const Customers = () => {
         onSubmit={(review) => {
           // ✅ add to slider
           setUserReviews((prev) => [review, ...prev]);
+
+          // ✅ Jump to first slide (new review)
+          setTimeout(() => {
+            swiperRef.current?.slideTo(0);
+          }, 100);
 
           // toast
           setShowThanks(true);
