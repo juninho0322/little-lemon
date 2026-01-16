@@ -80,6 +80,8 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   width: 100%;
+   max-width: 100%;   /* 👈 prevents overflow */
+  box-sizing: border-box; /* 👈 includes padding in width */
   padding: 12px 12px;
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.12);

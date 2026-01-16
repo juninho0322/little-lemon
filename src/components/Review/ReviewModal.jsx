@@ -116,7 +116,7 @@ export const ReviewModal = ({ open, onClose, onSubmit }) => {
                     </CloseButton>
                 </ReviewHeader>
 
-                <ReviewForm onSubmit={handleSubmit}>
+                <ReviewForm onSubmit={handleSubmit} noValidate>
                     {/* Name */}
                     <Field>
                         <Label htmlFor="review-name">Name</Label>
@@ -141,28 +141,28 @@ export const ReviewModal = ({ open, onClose, onSubmit }) => {
                             />
 
                             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-  <HiddenFileInput
-    id="review-photo-upload"
-    type="file"
-    accept="image/*"
-    onChange={handlePickPhoto}
-  />
-  <UploadButton as="label" htmlFor="review-photo-upload">
-    Upload photo
-  </UploadButton>
+                                <HiddenFileInput
+                                    id="review-photo-upload"
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handlePickPhoto}
+                                />
+                                <UploadButton as="label" htmlFor="review-photo-upload">
+                                    Upload photo
+                                </UploadButton>
 
-  <HiddenFileInput
-    id="review-photo-camera"
-    type="file"
-    accept="image/*"
-    capture="environment"
-    onChange={handlePickPhoto}
-    className="mobile-camera"
-  />
-  <UploadButton as="label" htmlFor="review-photo-camera" className="mobile-camera">
-    Take photo
-  </UploadButton>
-</div>
+                                <HiddenFileInput
+                                    id="review-photo-camera"
+                                    type="file"
+                                    accept="image/*"
+                                    capture="environment"
+                                    onChange={handlePickPhoto}
+                                    className="mobile-camera"
+                                />
+                                <UploadButton as="label" htmlFor="review-photo-camera" className="mobile-camera">
+                                    Take photo
+                                </UploadButton>
+                            </div>
 
                         </PhotoRow>
 
@@ -223,7 +223,7 @@ export const ReviewModal = ({ open, onClose, onSubmit }) => {
                         <SecondaryButton type="button" onClick={handleCancel}>
                             Cancel
                         </SecondaryButton>
-                        <PrimaryButton type="submit" disabled={!isValid && touched}>
+                        <PrimaryButton type="submit" disabled={!isValid}>
                             Submit review
                         </PrimaryButton>
                     </Footer>
