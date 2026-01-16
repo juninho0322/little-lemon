@@ -1,13 +1,12 @@
+import { useMemo, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { H3 } from "../H3/H3";
 import { reviews } from "../../data/reviewData";
 import { Button } from "../Button/Button";
 import { ReviewModal } from "../Review/ReviewModal";
-import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
-
 
 import {
   CustomersWrapper,
@@ -19,11 +18,17 @@ import {
   StarsWrap,
 } from "./Customers.style";
 
-
 export const Customers = () => {
-
-  const [isModalOpen, setIsModalOpen] = useState(false); // 👈 modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showThanks, setShowThanks] = useState(false);
+
+  // ✅ store reviews created from modal
+  const [userReviews, setUserReviews] = useState([]);
+
+  // ✅ combine: newest user reviews first, then your fixed ones
+  const allReviews = useMemo(() => {
+    return [...userReviews, ...reviews];
+  }, [userReviews]);
 
   return (
     <CustomersWrapper>
@@ -41,10 +46,13 @@ export const Customers = () => {
             992: { slidesPerView: 3 },
           }}
         >
-          {reviews.map((r, idx) => (
-            <SwiperSlide key={idx}>
+          {allReviews.map((r, idx) => (
+            <SwiperSlide key={r.createdAt ? `user-${r.createdAt}` : `fixed-${idx}`}>
               <CustomerCard>
-                <Avatar src={r.photo} alt={r.name} />
+                <Avatar
+                  src={r.photoPreview || r.photo || "/images/user-placeholder.jpg"}
+                  alt={r.name}
+                />
                 <Name>{r.name}</Name>
 
                 <StarsWrap aria-label={`${r.rating} out of 5 stars`}>
@@ -58,29 +66,25 @@ export const Customers = () => {
           ))}
         </Swiper>
       </SliderWrap>
-      {/* 👇 Open modal on click */}
+
       <Button variant="primary" onClick={() => setIsModalOpen(true)}>
         Give us a Review!
       </Button>
 
-      {/* 👇 Modal */}
       <ReviewModal
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={(review) => {
-          console.log("New review:", review);
-          setShowThanks(true);
+          // ✅ add to slider
+          setUserReviews((prev) => [review, ...prev]);
 
-          setTimeout(() => {
-            setShowThanks(false);
-          }, 2500);
+          // toast
+          setShowThanks(true);
+          setTimeout(() => setShowThanks(false), 2500);
         }}
       />
-      {showThanks && (
-        <div className="review-toast">
-          Thank you for your review! ⭐
-        </div>
-      )}
+
+      {showThanks && <div className="review-toast">Thank you for your review! ⭐</div>}
     </CustomersWrapper>
   );
 };
