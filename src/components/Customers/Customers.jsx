@@ -5,6 +5,7 @@ import { H3 } from "../H3/H3";
 import { reviews } from "../../data/reviewData";
 import { Button } from "../Button/Button";
 import { ReviewModal } from "../Review/ReviewModal";
+import defaultPic from "../../assets/users/user00.png";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -53,7 +54,7 @@ export const Customers = () => {
             <SwiperSlide key={r.createdAt ? `user-${r.createdAt}` : `fixed-${idx}`}>
               <CustomerCard>
                 <Avatar
-                  src={r.photoPreview || r.photo || "/images/user-placeholder.jpg"}
+                  src={r.photoPreview || r.photo || defaultPic }
                   alt={r.name}
                 />
                 <Name>{r.name}</Name>
@@ -70,7 +71,7 @@ export const Customers = () => {
         </Swiper>
       </SliderWrap>
 
-      <Button variant="primary" onClick={() => setIsModalOpen(true)}>
+      <Button $borderColor="var(--color-primary)"  $color="var(--color-primary)" onClick={() => setIsModalOpen(true)}>
         Give us a Review!
       </Button>
 

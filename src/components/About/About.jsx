@@ -19,7 +19,7 @@ export const About = () => {
               <p>
               We are open for lunch and dinner 7 days a week.
               </p>
-              <Button $color="surface" $margintop={"20px"}>Reserve a Table</Button> {/* Call to action button */}
+              <Button $color="var(--color-surface)" $margintop={"20px"}>Reserve a Table</Button> {/* Call to action button */}
             </Col>
 
         </div>

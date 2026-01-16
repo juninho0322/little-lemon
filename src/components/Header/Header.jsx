@@ -122,10 +122,10 @@ export const Header = ({
         )}
 
         <CartFooter>
-          <Button onClick={closeCart} $color={"--color-secondary"} $width={"8rem"}>
+          <Button $color="var(--color-surface)" $width={"8rem"} onClick={closeCart}>
             Checkout
           </Button>
-          <Button onClick={closeCart} $color={"--color-secondary"} $width={"8rem"}>
+           <Button $color="var(--color-surface)" $width={"8rem"} onClick={closeCart}>
             Log In
           </Button>
         </CartFooter>

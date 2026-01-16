@@ -1,6 +1,7 @@
 // ReviewModal.jsx
 import { useMemo, useState } from "react";
 import { Modal } from "../Modal/Modal"; // adjust path if needed
+import defaultPic from "../../assets/users/user00.png";
 
 import {
     ReviewModalInner,
@@ -146,7 +147,7 @@ export const ReviewModal = ({ open, onClose, onSubmit }) => {
                         <Label>Photo (optional)</Label>
                         <PhotoRow>
                             <AvatarPreview
-                                src={photoPreview || "data:image/svg+xml,%3Csvg ..."}
+                                src={photoPreview || defaultPic}
                                 alt=""
                             />
 
