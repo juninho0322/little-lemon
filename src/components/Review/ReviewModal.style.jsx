@@ -93,7 +93,10 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   width: 100%;
-  padding: 12px 12px;
+  max-width: 100%;   /* 👈 prevents overflow */
+  box-sizing: border-box; /* 👈 includes padding in width */
+
+  padding: 12px;
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   background: #fff;
@@ -104,6 +107,7 @@ export const TextArea = styled.textarea`
     border-color: var(--color-primary);
   }
 `;
+
 
 export const RatingRow = styled.div`
   display: grid;
