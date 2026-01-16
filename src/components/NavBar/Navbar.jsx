@@ -3,10 +3,10 @@ import { NavbarItem } from './NavbarItem/NavbarItem';
 
 
 
-export const Navbar = ( {children, $ignoreMQ, $paddingbottom} ) => {
+export const Navbar = ( {children, $ignoreMQ, $paddingbottom, $gap} ) => {
   return (
     <NavbarStyled aria-label="Primary" $ignoreMQ={$ignoreMQ} $paddingbottom={$paddingbottom}>
-        <NavList>
+        <NavList $gap={$gap}>
             {children}
         </NavList>
     </NavbarStyled>

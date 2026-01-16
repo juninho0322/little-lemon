@@ -60,7 +60,7 @@ function App() {
             <Hidden sm xs>
               <Logo $size="medium" $paddingtop="large" />
             </Hidden>
-            <Navbar>
+            <Navbar  $gap={"large"}>
               <Navbar.NavbarItem href="#home">Home</Navbar.NavbarItem>
               <Navbar.NavbarItem href="#about">About</Navbar.NavbarItem>
               <Navbar.NavbarItem href="#menu">Menu</Navbar.NavbarItem>
@@ -73,7 +73,7 @@ function App() {
           <Content>
             <About />
             <H3>Order for delivery!</H3>
-            <Navbar $paddingbottom="large" $ignoreMQ>
+            <Navbar $paddingbottom="large" $ignoreMQ $gap={"small"}>
               <Navbar.NavbarItem
                 onClick={() => setSelectedCategory("news")}
                 $active={selectedCategory === "news"}

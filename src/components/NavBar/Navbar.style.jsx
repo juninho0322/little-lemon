@@ -2,12 +2,10 @@ import styled from "styled-components";
 
 export const NavbarStyled = styled.nav`
   display: flex;
-  gap: 1rem;
-
   padding-bottom: ${({ $paddingbottom }) =>
     $paddingbottom === "small" ? "0px" :
     $paddingbottom === "large" ? "1rem" :
-    "5px"};
+      "5px"};
 
   /* Default media query (applies only if NOT overridden) */
   ${({ $ignoreMQ }) =>
@@ -23,7 +21,9 @@ export const NavbarStyled = styled.nav`
 export const NavList = styled.ul`
   display: flex;
   margin-left: auto;
-  gap: 1rem;
+  gap: ${({ $gap }) =>
+   $gap === "small" ? "0.5rem" :
+   $gap === "large" ? "1rem" : "5px"};
   list-style: none;
   padding: 0;
   margin: 0;

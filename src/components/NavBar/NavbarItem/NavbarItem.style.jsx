@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavbarItemStyled = styled.button`
   all: unset;
   cursor: pointer;
-  padding: 8px 10px;
+  padding: 8px 8px;
   border-radius: 8px;
   color: var(--color-primary-text);
 

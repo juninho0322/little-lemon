@@ -63,7 +63,7 @@ export const CustomerCard = styled.div`
   padding: 1rem;
   background-color: var(--color-surface);
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition:

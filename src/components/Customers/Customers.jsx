@@ -3,6 +3,8 @@ import { Navigation } from "swiper/modules";
 import { H3 } from "../H3/H3";
 import { reviews } from "../../data/reviewData";
 import { Button } from "../Button/Button";
+import { ReviewModal } from "../Review/ReviewModal";
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -19,6 +21,9 @@ import {
 
 
 export const Customers = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false); // 👈 modal state
+
   return (
     <CustomersWrapper>
       <H3 color="var(--color-primary)">What Our Clients Say</H3>
@@ -52,7 +57,19 @@ export const Customers = () => {
           ))}
         </Swiper>
       </SliderWrap>
-      <Button variant="primary">Give us a Review!</Button>
+          {/* 👇 Open modal on click */}
+      <Button variant="primary" onClick={() => setIsModalOpen(true)}>
+        Give us a Review!
+      </Button>
+
+      {/* 👇 Modal */}
+      <ReviewModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={(data) => {
+          console.log("New review:", data);
+        }}
+      />
     </CustomersWrapper>
   );
 };
