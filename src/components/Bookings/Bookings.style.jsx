@@ -5,9 +5,12 @@ export const BookingsInner = styled.div`
 
   /* ✅ Always leaves space on the sides */
   width: clamp(280px, calc(100vw - 32px), 820px);
-
+  align-self: center;
   margin: 0 auto;
   padding: 1rem 1rem 1.25rem;
+
+  margin-left: auto;
+  margin-right: auto;
 
   background: var(--color-surface);
   border-radius: 16px;
@@ -119,6 +122,11 @@ export const Label = styled.label`
 `;
 
 const controlBase = `
+-webkit-appearance: none;
+  appearance: none;
+
+  min-height: 48px;
+  line-height: 1.2;
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -146,6 +154,11 @@ const controlBase = `
 
 export const Input = styled.input`
   ${controlBase}
+
+  &[type="date"],
+  &[type="time"] {
+    padding: 10px 12px;
+  }
 `;
 
 export const Select = styled.select`
@@ -173,16 +186,6 @@ export const Footer = styled.div`
 `;
 
 
-
-
-export const Summary = styled.div`
-  font-size: 0.95rem;
-  color: var(--color-secondary-text);
-
-  strong {
-    color: var(--color-secondary);
-  }
-`;
 
 export const Actions = styled.div`
   display: flex;

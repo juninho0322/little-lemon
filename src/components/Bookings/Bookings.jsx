@@ -15,7 +15,6 @@ import {
     Select,
     ErrorText,
     Footer,
-    Summary,
     Actions,
     SecondaryButton,
     PrimaryButton,
@@ -39,8 +38,8 @@ export const Bookings = ({ open, onClose, onSubmit }) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [date, setDate] = useState(todayISO());
-    const [time, setTime] = useState("19:00");
-    const [guests, setGuests] = useState(2);
+    const [time, setTime] = useState("");
+    const [guests, setGuests] = useState(0);
     const [occasion, setOccasion] = useState("");
 
     const [success, setSuccess] = useState(false);
@@ -278,10 +277,6 @@ export const Bookings = ({ open, onClose, onSubmit }) => {
                             </Grid>
 
                             <Footer>
-                                <Summary>
-                                    <strong>{Number(guests) || 0}</strong> guest(s) •{" "}
-                                    <strong>{formatDate(date)}</strong> • <strong>{time}</strong>
-                                </Summary>
 
 
                                 <Actions>
