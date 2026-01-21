@@ -5,9 +5,9 @@ export const BookingsInner = styled.div`
 
   width: clamp(280px, calc(100vw - 32px), 820px);
 
-   max-height: calc(100vh - 40px); /* accounts for modal padding */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+   max-height: calc(100vh - 32px); /* accounts for modal padding */
+  display: flex;
+  flex-direction: column;
 
   /* 🔒 Always center horizontally */
   margin-left: auto;
