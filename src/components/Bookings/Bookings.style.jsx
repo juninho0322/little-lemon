@@ -5,10 +5,6 @@ export const BookingsInner = styled.div`
 
   width: clamp(280px, calc(100vw - 32px), 820px);
 
-   max-height: calc(100vh - 32px); /* accounts for modal padding */
-  display: flex;
-  flex-direction: column;
-
   /* 🔒 Always center horizontally */
   margin-left: auto;
   margin-right: auto;
@@ -16,6 +12,9 @@ export const BookingsInner = styled.div`
   /* 🔒 Center even inside flex parents */
   align-self: center;
 
+  /* 🔒 Mobile breathing room top & bottom */
+  margin-top: 16px;
+  margin-bottom: 16px;
 
   padding: 1rem 1rem 1.25rem;
 
@@ -93,7 +92,7 @@ export const BookingsForm = styled.form`
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 16px; /* was 14px */
+  gap: 16px;
 `;
 
 
@@ -102,7 +101,12 @@ export const Field = styled.div`
   flex-direction: column;
   gap: 6px;
   min-width: 0;
-  padding-bottom: 2rem;
+
+  padding-bottom: 1.25rem;
+
+  @media (max-width: 480px) {
+    padding-bottom: 0.75rem;
+  }
 `;
 
 
@@ -164,8 +168,8 @@ export const ErrorText = styled.p`
 `;
 
 export const Footer = styled.div`
-  margin-top: 4px;
-
+  margin-top: auto;
+ padding-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -176,8 +180,6 @@ export const Footer = styled.div`
     justify-content: space-between;
   }
 `;
-
-
 
 
 export const Actions = styled.div`
@@ -205,7 +207,6 @@ export const Actions = styled.div`
     }
   }
 `;
-
 
 
 export const SuccessWrap = styled.div`
