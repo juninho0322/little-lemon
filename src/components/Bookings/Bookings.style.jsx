@@ -13,7 +13,6 @@ export const BookingsInner = styled.div`
   align-self: center;
 
   /* 🔒 Mobile breathing room top & bottom */
-  margin-top: 16px;
   margin-bottom: 16px;
 
   padding: 1rem 1rem 1.25rem;
