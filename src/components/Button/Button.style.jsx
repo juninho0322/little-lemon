@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ButtonStyled = styled.button`
   background: ${({ $background }) => $background || "var(--color-secondary)"};
   color: ${({ $color }) => $color || "var(--color-surface)"};
-
   margin-top: ${({ $margintop }) => $margintop || "0"};
   width: ${({ $width }) => $width || "auto"};
 
@@ -13,7 +12,7 @@ export const ButtonStyled = styled.button`
 
   padding: 10px 15px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: ${({ $fontWeight }) => $fontWeight || 500};
   cursor: pointer;
   align-self: center;
 

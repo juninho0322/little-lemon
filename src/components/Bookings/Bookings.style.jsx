@@ -3,14 +3,20 @@ import styled from "styled-components";
 export const BookingsInner = styled.div`
   box-sizing: border-box;
 
-  /* ✅ Always leaves space on the sides */
   width: clamp(280px, calc(100vw - 32px), 820px);
-  align-self: center;
-  margin: 0 auto;
-  padding: 1rem 1rem 1.25rem;
 
+  /* 🔒 Always center horizontally */
   margin-left: auto;
   margin-right: auto;
+
+  /* 🔒 Center even inside flex parents */
+  align-self: center;
+
+  /* 🔒 Mobile breathing room top & bottom */
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  padding: 1rem 1rem 1.25rem;
 
   background: var(--color-surface);
   border-radius: 16px;
@@ -22,12 +28,13 @@ export const BookingsInner = styled.div`
     padding: 1.25rem 1.5rem 1.5rem;
   }
 
-  /* ✅ super tiny phones */
   @media (max-width: 360px) {
-    width: calc(100vw - 24px); /* 12px each side */
+    width: calc(100vw - 24px);
     padding: 0.9rem 0.9rem 1.1rem;
   }
 `;
+
+
 
 
 
@@ -92,27 +99,14 @@ export const BookingsForm = styled.form`
 `;
 
 
-export const Grid = styled.div`
-  display: grid;
-  row-gap: 16px;
-  column-gap: 16px;
-
-  grid-template-columns: 1fr;
-
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-`;
-
-
-
 export const Field = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
-
   min-width: 0;
+  padding-bottom: 2rem;
 `;
+
 
 
 export const Label = styled.label`
@@ -187,58 +181,34 @@ export const Footer = styled.div`
 
 
 
+
 export const Actions = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
 
-  /* ✅ mobile: stacked buttons */
+  /* Mobile: stack full-width buttons */
   flex-direction: column;
+  align-items: stretch;
+
+  /* Make the Button components actually stretch */
+  & > * {
+    width: 100%;
+  }
 
   @media (min-width: 520px) {
+    /* Desktop: buttons side-by-side, aligned to the right */
     flex-direction: row;
+
+    & > * {
+      width: auto;
+      min-width: 160px; /* prevents wrapping */
+    }
   }
 `;
 
 
-export const SecondaryButton = styled.button`
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: transparent;
-  border: 1.5px solid rgba(0, 0, 0, 0.14);
-  cursor: pointer;
-
-  @media (min-width: 520px) {
-    width: auto;
-    min-width: 120px;
-  }
-`;
-
-export const PrimaryButton = styled.button`
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: none;
-  cursor: pointer;
-
-  background: var(--color-primary);
-  color: #fff;
-
-  @media (min-width: 520px) {
-    width: auto;
-    min-width: 160px;
-  }
-
-  &:disabled {
-    opacity: 0.55; /* was too washed out */
-    cursor: not-allowed;
-  }
-`;
-
-export const FullRow = styled.div`
-  grid-column: 1 / -1;
-  min-width: 0;
-`;
 
 export const SuccessWrap = styled.div`
   text-align: center;

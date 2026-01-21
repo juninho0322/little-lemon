@@ -9,7 +9,8 @@ export const Button = ({
   $margintop,
   $width,
   $borderColor,
-  $hover
+  $hover,
+  $fontWeight
 }) => {
   return (
     <ButtonStyled
@@ -21,6 +22,7 @@ export const Button = ({
       $width={$width}
       $borderColor={$borderColor}
       $hover={$hover}
+      $fontWeight={$fontWeight}
     >
       {children}
     </ButtonStyled>

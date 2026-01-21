@@ -25,7 +25,9 @@ export const About = () => {
             We are open for lunch and dinner 7 days a week.
           </p>
           <Button
-            $color="var(--color-surface)"
+            $color={"var(--color-surface)"}
+            $background={"var(--color-secondary)"}
+            $fontWeight={700}
             $margintop="20px"
             onClick={() => setBookingOpen(true)}
           >

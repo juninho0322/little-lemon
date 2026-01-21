@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { Modal } from "../Modal/Modal"; // adjust path if needed
+import { Button } from "../Button/Button";
+import { Row, Col } from "react-grid-system";
 
 import {
     BookingsInner,
@@ -8,7 +10,6 @@ import {
     BookingsTitle,
     CloseButton,
     BookingsForm,
-    Grid,
     Field,
     Label,
     Input,
@@ -16,8 +17,6 @@ import {
     ErrorText,
     Footer,
     Actions,
-    SecondaryButton,
-    PrimaryButton,
     Hint,
     SuccessWrap,
     SuccessIcon,
@@ -79,8 +78,8 @@ export const Bookings = ({ open, onClose, onSubmit }) => {
         setFirstName("");
         setLastName("");
         setDate(todayISO());
-        setTime("19:00");
-        setGuests(2);
+        setTime("00:00");
+        setGuests(0);
         setOccasion("");
         setTouched({});
         setSuccess(false);
@@ -143,9 +142,9 @@ export const Bookings = ({ open, onClose, onSubmit }) => {
                             <strong>{formatDate(date)}</strong> at <strong>{time}</strong> is booked.
                         </SuccessText>
 
-                        <PrimaryButton type="button" onClick={handleClose}>
+                        <Button type="button" onClick={handleClose}>
                             Close
-                        </PrimaryButton>
+                        </Button>
                     </SuccessWrap>
                 ) : (
                     <>
@@ -161,132 +160,146 @@ export const Bookings = ({ open, onClose, onSubmit }) => {
                         </BookingsHeader>
 
                         <BookingsForm onSubmit={handleSubmit}>
-                            <Grid>
-                                <Field>
-                                    <Label htmlFor="firstName">First name</Label>
-                                    <Input
-                                        id="firstName"
-                                        value={firstName}
-                                        onChange={(e) => setFirstName(e.target.value)}
-                                        onBlur={() => markTouched("firstName")}
-                                        placeholder="e.g. Luis"
-                                        aria-invalid={Boolean(touched.firstName && errors.firstName)}
-                                    />
-                                    {touched.firstName && errors.firstName && (
-                                        <ErrorText>{errors.firstName}</ErrorText>
-                                    )}
-                                </Field>
+                            <Row gutterWidth={16}>
+                                {/* First name */}
+                                <Col xs={12} md={6}>
+                                    <Field>
+                                        <Label htmlFor="firstName">First name</Label>
+                                        <Input
+                                            id="firstName"
+                                            value={firstName}
+                                            onChange={(e) => setFirstName(e.target.value)}
+                                            onBlur={() => markTouched("firstName")}
+                                            placeholder="e.g. Luis"
+                                            aria-invalid={Boolean(touched.firstName && errors.firstName)}
+                                        />
+                                        {touched.firstName && errors.firstName && (
+                                            <ErrorText>{errors.firstName}</ErrorText>
+                                        )}
+                                    </Field>
+                                </Col>
 
-                                <Field>
-                                    <Label htmlFor="lastName">Last name</Label>
-                                    <Input
-                                        id="lastName"
-                                        value={lastName}
-                                        onChange={(e) => setLastName(e.target.value)}
-                                        onBlur={() => markTouched("lastName")}
-                                        placeholder="e.g. Fernandes"
-                                        aria-invalid={Boolean(touched.lastName && errors.lastName)}
-                                    />
-                                    {touched.lastName && errors.lastName && (
-                                        <ErrorText>{errors.lastName}</ErrorText>
-                                    )}
-                                </Field>
-                                <Field>
-                                    <Label htmlFor="date">Date</Label>
-                                    <Input
-                                        id="date"
-                                        type="date"
-                                        min={todayISO()}
-                                        value={date}
-                                        onChange={(e) => setDate(e.target.value)}
-                                        onBlur={() => markTouched("date")}
-                                        aria-invalid={Boolean(touched.date && errors.date)}
-                                    />
+                                {/* Last name */}
+                                <Col xs={12} md={6}>
+                                    <Field>
+                                        <Label htmlFor="lastName">Last name</Label>
+                                        <Input
+                                            id="lastName"
+                                            value={lastName}
+                                            onChange={(e) => setLastName(e.target.value)}
+                                            onBlur={() => markTouched("lastName")}
+                                            placeholder="e.g. Fernandes"
+                                            aria-invalid={Boolean(touched.lastName && errors.lastName)}
+                                        />
+                                        {touched.lastName && errors.lastName && (
+                                            <ErrorText>{errors.lastName}</ErrorText>
+                                        )}
+                                    </Field>
+                                </Col>
 
-                                    {/* ✅ Show formatted date for the user */}
-                                    {date && !errors.date && (
-                                        <small style={{ opacity: 0.7 }}>
-                                            Selected: {formatDate(date)}
-                                        </small>
-                                    )}
+                                {/* Date */}
+                                <Col xs={6} md={6}>
+                                    <Field>
+                                        <Label htmlFor="date">Date</Label>
+                                        <Input
+                                            id="date"
+                                            type="date"
+                                            min={todayISO()}
+                                            value={date}
+                                            onChange={(e) => setDate(e.target.value)}
+                                            onBlur={() => markTouched("date")}
+                                            aria-invalid={Boolean(touched.date && errors.date)}
+                                        />
 
-                                    {touched.date && errors.date && (
-                                        <ErrorText>{errors.date}</ErrorText>
-                                    )}
-                                </Field>
+                                        {touched.date && errors.date && (
+                                            <ErrorText>{errors.date}</ErrorText>
+                                        )}
+                                    </Field>
+                                </Col>
 
+                                {/* Time */}
+                                <Col xs={6} md={6}>
+                                    <Field>
+                                        <Label htmlFor="time">Time</Label>
+                                        <Input
+                                            id="time"
+                                            type="time"
+                                            value={time}
+                                            onChange={(e) => {
+                                                setTime(e.target.value);
+                                                requestAnimationFrame(() => e.target.blur());
+                                            }}
+                                            onBlur={() => markTouched("time")}
+                                            aria-invalid={Boolean(touched.time && errors.time)}
+                                        />
+                                        {touched.time && errors.time && (
+                                            <ErrorText>{errors.time}</ErrorText>
+                                        )}
+                                    </Field>
+                                </Col>
 
-                                <Field>
-                                    <Label htmlFor="time">Time</Label>
-                                    <Input
-                                        id="time"
-                                        type="time"
-                                        value={time}
-                                        onChange={(e) => setTime(e.target.value)}
-                                        onBlur={() => markTouched("time")}
-                                        aria-invalid={Boolean(touched.time && errors.time)}
-                                    />
-                                    {touched.time && errors.time && (
-                                        <ErrorText>{errors.time}</ErrorText>
-                                    )}
-                                </Field>
+                                {/* Guests */}
+                                <Col xs={12} md={6}>
+                                    <Field>
+                                        <Label htmlFor="guests">Number of guests</Label>
+                                        <Input
+                                            id="guests"
+                                            type="number"
+                                            inputMode="numeric"
+                                            min={1}
+                                            max={20}
+                                            value={guests}
+                                            onChange={(e) => {
+                                                const next = e.target.value;
+                                                setGuests(next === "" ? "" : clamp(Number(next), 1, 20));
+                                            }}
+                                            onBlur={() => markTouched("guests")}
+                                            aria-invalid={Boolean(touched.guests && errors.guests)}
+                                        />
+                                        {Number(guests) <= 0 && <Hint>Max 20 guests per booking.</Hint>}
+                                        {touched.guests && errors.guests && (
+                                            <ErrorText>{errors.guests}</ErrorText>
+                                        )}
+                                    </Field>
+                                </Col>
 
-                                <Field>
-                                    <Label htmlFor="guests">Number of guests</Label>
-                                    <Input
-                                        id="guests"
-                                        type="number"
-                                        inputMode="numeric"
-                                        min={1}
-                                        max={20}
-                                        value={guests}
-                                        onChange={(e) => {
-                                            const next = e.target.value;
-                                            setGuests(next === "" ? "" : clamp(Number(next), 1, 20));
-                                        }}
-                                        onBlur={() => markTouched("guests")}
-                                        aria-invalid={Boolean(touched.guests && errors.guests)}
-                                    />
-                                    {touched.guests && errors.guests && (
-                                        <ErrorText>{errors.guests}</ErrorText>
-                                    )}
-                                </Field>
+                                {/* Occasion */}
+                                <Col xs={12} md={6}>
+                                    <Field>
+                                        <Label htmlFor="occasion">Occasion</Label>
+                                        <Select
+                                            id="occasion"
+                                            value={occasion}
+                                            onChange={(e) => setOccasion(e.target.value)}
+                                            onBlur={() => markTouched("occasion")}
+                                            aria-invalid={Boolean(touched.occasion && errors.occasion)}
+                                        >
+                                            <option value="" disabled>
+                                                Select one…
+                                            </option>
+                                            <option value="birthday">Birthday</option>
+                                            <option value="anniversary">Anniversary</option>
+                                            <option value="date-night">Date night</option>
+                                            <option value="business">Business</option>
+                                            <option value="other">Other</option>
+                                        </Select>
+                                        {touched.occasion && errors.occasion && (
+                                            <ErrorText>{errors.occasion}</ErrorText>
+                                        )}
+                                    </Field>
+                                </Col>
+                            </Row>
 
-                                <Field>
-                                    <Label htmlFor="occasion">Occasion</Label>
-                                    <Select
-                                        id="occasion"
-                                        value={occasion}
-                                        onChange={(e) => setOccasion(e.target.value)}
-                                        onBlur={() => markTouched("occasion")}
-                                        aria-invalid={Boolean(touched.occasion && errors.occasion)}
-                                    >
-                                        <option value="" disabled>
-                                            Select one…
-                                        </option>
-                                        <option value="birthday">Birthday</option>
-                                        <option value="anniversary">Anniversary</option>
-                                        <option value="date-night">Date night</option>
-                                        <option value="business">Business</option>
-                                        <option value="other">Other</option>
-                                    </Select>
-                                    {touched.occasion && errors.occasion && (
-                                        <ErrorText>{errors.occasion}</ErrorText>
-                                    )}
-                                </Field>
-                            </Grid>
 
                             <Footer>
-
-
                                 <Actions>
-                                    <SecondaryButton type="button" onClick={handleClose}>
+                                    <Button type="button" $width={"100%"} $background={"transparent"} $borderColor={"var(--color-secondary)"} $color={"black"} onClick={handleClose}>
                                         Cancel
-                                    </SecondaryButton>
+                                    </Button>
 
-                                    <PrimaryButton type="submit" disabled={hasErrors}>
+                                    <Button type="submit" $width={"100%"} $background={"var(--color-primary)"} $color={"var(--color-primary-text)"} $fontWeight={700} disabled={hasErrors}>
                                         Confirm booking
-                                    </PrimaryButton>
+                                    </Button>
                                 </Actions>
                             </Footer>
                         </BookingsForm>

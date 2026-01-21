@@ -48,7 +48,7 @@ export const MobileMenu = ({ children }) => {
           <li><MenuLink href="#order-online" onClick={() => setOpen(false)}>Order</MenuLink></li>
           <li><MenuLink href="#login" onClick={() => setOpen(false)}>Login</MenuLink></li>
         </MenuList>
-        <Button $margintop="50px" onClick={() => setBookingOpen(true)}>Reserve a Table</Button>
+        <Button $margintop="50px" $background={"var(--color-primary)"} $color={"var(--color-primary-text)"} $fontWeight={700} onClick={() => setBookingOpen(true)}>Reserve a Table</Button>
         <Bookings
           open={bookingOpen}
           onClose={() => setBookingOpen(false) || setOpen(false)}
