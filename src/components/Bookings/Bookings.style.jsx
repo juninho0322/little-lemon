@@ -5,13 +5,16 @@ export const BookingsInner = styled.div`
 
   width: clamp(280px, calc(100vw - 32px), 820px);
 
+   max-height: calc(100vh - 40px); /* accounts for modal padding */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
   /* 🔒 Always center horizontally */
   margin-left: auto;
   margin-right: auto;
 
   /* 🔒 Center even inside flex parents */
   align-self: center;
-
 
 
   padding: 1rem 1rem 1.25rem;
@@ -31,9 +34,6 @@ export const BookingsInner = styled.div`
     padding: 0.9rem 0.9rem 1.1rem;
   }
 `;
-
-
-
 
 
 export const BookingsHeader = styled.div`
