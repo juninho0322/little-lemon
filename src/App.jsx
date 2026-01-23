@@ -14,9 +14,15 @@ import { Customers } from './components/Customers/Customers.jsx';
 
 
 
+
 function App() {
+
   const [cart, setCart] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("news");
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
 
   const handleAddToCart = ({ id, quantity = 0 }) => {
     setCart(prev => ({
@@ -56,6 +62,9 @@ function App() {
             cart={cart}
             onAddToCart={handleAddToCart}
             onRemoveFromCart={handleRemoveFromCart}
+            isCartOpen={isCartOpen}
+            onOpenCart={openCart}
+            onCloseCart={closeCart}
           >
             <Hidden sm xs>
               <Logo $size="medium" $paddingtop="large" />
@@ -64,7 +73,7 @@ function App() {
               <Navbar.NavbarItem href="#home">Home</Navbar.NavbarItem>
               <Navbar.NavbarItem href="#about">About</Navbar.NavbarItem>
               <Navbar.NavbarItem href="#menu">Menu</Navbar.NavbarItem>
-              <Navbar.NavbarItem href="#order-online">Order</Navbar.NavbarItem>
+              <Navbar.NavbarItem onClick={openCart}>Order</Navbar.NavbarItem>
               <Navbar.NavbarItem href="#footer">Login</Navbar.NavbarItem>
             </Navbar>
           </Header>
